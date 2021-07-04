@@ -1,23 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2022.3">
-  <style type="text/css">
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px Times; text-decoration: underline ; font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
-  </style>
-</head>
-<body>
-<h1 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>{{ site.title | default: site.github.repository_name }}</b></span></h1>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>{{ site.description | default: site.github.project_tagline }}</b></span></h2>
-<p class="p2"><span class="s1">{% if site.github.is_project_page %} <a href="file:///Users/xieyz/RobinShare/_layouts/%7B%7B%20site.github.repository_url%20%7D%7D"><span class="s2">View on GitHub</span></a> {% endif %}<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">{{ content }}</span></p>
-<p class="p2"><span class="s1">{% if site.github.is_project_page %} <a href="file:///Users/xieyz/RobinShare/_layouts/%7B%7B%20site.github.repository_url%20%7D%7D"><span class="s2">{{ site.github.repository_name }}</span></a> is maintained by <a href="file:///Users/xieyz/RobinShare/_layouts/%7B%7B%20site.github.owner_url%20%7D%7D"><span class="s2">{{ site.github.owner_name }}</span></a>. {% endif %} Copyright © 2015 - 2021 RobinShare. All Rights Reserved.<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">{% if site.google_analytics %} {% endif %}<span class="Apple-converted-space"> </span></span></p>
-</body>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      {% endif %}
+    </section>
+
+    <section class="main-content">
+      {{ content }}
+
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <span class="site-footer-credits">Copyright © 2015 - 2019 RobinShare. All Rights Reserved</a>.</span>
+      </footer>
+    </section>
+
+    {% if site.google_analytics %}
+      <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+        try {
+          var pageTracker = _gat._getTracker("{{ site.google_analytics }}");
+        pageTracker._trackPageview();
+        } catch(err) {}
+      </script>
+    {% endif %}
+  </body>
 </html>

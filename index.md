@@ -69,3 +69,14 @@ www.ximalaya.com (喜马拉雅有声阅读)
 A guide to effective catalog searching.
 
 [FoxGreat](https://foxgreat.com/) &nbsp;&nbsp;&nbsp;[CoderProg](https://coderprog.com/) &nbsp;&nbsp;&nbsp;[AvaxHome](https://avxhm.se/) &nbsp;&nbsp;&nbsp;[LetMeRead](https://www.letmeread.net/) &nbsp;&nbsp;&nbsp;[SaltTiger](https://salttiger.com/) &nbsp;&nbsp;&nbsp;[我爱电子书](https://www.52doc.com/) &nbsp;&nbsp;&nbsp;[书栈网](https://www.bookstack.cn/)
+
+#SmartBooks' Project That Looking For A Team
+#射频标签定位装置及电子智能有声书
+##专利号：202110269490.5
+![图1](imageBook1.png)
+![图2](imageBook2.png)
+**产品功能描述：**部分书页或全部书页嵌入页码定位射频标签，封底封面为柔性射频标签读取模组，两者配合定位当前书本翻开的章节或页码，可供选择匹配播放对应音频【讲解音频、教学音频、读后感音频等】。更可以，把以上抽象成文件夹形态定位装置和独立传统附着标签书籍两部分，任一独立传统附着标签书籍放置在文件夹形态定位装置上，文件夹形态定位装置根据书籍上标签，通过网络下载该书籍的标准音频，然后翻译书籍即可供选择匹配播放对应音频。
+
+**产品重要特性：**根据定位的精度，精度要求高的需要标签数量也就多。当标签数量过于密集，此时需要标签分组化并使得标签组之间错落分布【原因：过于密集会导致叠置后面的标签由于信号衰落而无法被射频标签读取模组读取，错落分布利于规避该现象】
+
+**商业模式简述：**专利+平台+品牌。专利保护在申过程中，一旦下来，可以联合书籍印刷印务获得授权书籍嵌入标签的专利使用费；书籍上市后，可以匹配的音频平台化，收获一批专职标签书籍的音频创作者，以此对接需求端的使用者；品牌化，有专利加身，产品品牌化提升价值。

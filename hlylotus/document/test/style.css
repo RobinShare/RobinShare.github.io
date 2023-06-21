@@ -16,6 +16,23 @@ body {
     position:absolute;
     top:-20%;
 }
+
+.ebookclass{
+    width:219px;
+    height:310px;
+    border-radius:0%;
+    z-index:1;
+    position:absolute;
+    top:-20%;
+}
+
+.ebookpetal{
+    width:219px;
+    height:310px;
+    border-radius:0%;
+    z-index:-1;
+}
+
 .petal{
     width:15px;
     height:15px;
@@ -123,6 +140,21 @@ body {
 .f6p{
     background-color:turquoise;
 }
+
+#ebookid{
+    background-color:cyan;
+    position:absolute;
+    left:5%;
+    animation-name:rain;
+    animation-duration:13.14s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+    animation-delay:2.5s;
+}
+.f4p{
+    background-color:blue;
+}
+
 @keyframes rain{
     0%{transform:rotate(0deg);
        top:-10%;

@@ -397,40 +397,8 @@ padding: 2cm;
 <center><a href="./md/404_%E4%B9%A6%E7%B1%8D%E7%B4%A2%E5%BC%95Book%20Index.html"><font color=blue>书籍索引 </font></a></center><p>
 <center><a href="./md/404_%E4%B9%A6%E7%B1%8D%E7%B4%A2%E5%BC%95Book%20Index.html"><font color=blue>Book Index </font></a></center><p></p>
 
-<h1>累计访问量</h1>
-<p>当前访问量：<?php echo getVisits(); ?></p>
-
 </body>
 
 </html>
 
 
-<?php
-// 记录访问量到文件
-function recordVisit() {
-  $file = 'visits.txt';
-  $visits = 0;
-
-  if (file_exists($file)) {
-    $visits = (int) file_get_contents($file);
-  }
-
-  $visits++;
-  file_put_contents($file, $visits);
-}
-
-// 获取访问量
-function getVisits() {
-  $file = 'visits.txt';
-  $visits = 0;
-
-  if (file_exists($file)) {
-    $visits = (int) file_get_contents($file);
-  }
-
-  return $visits;
-}
-
-// 每次访问时记录访问量
-recordVisit();
-?>

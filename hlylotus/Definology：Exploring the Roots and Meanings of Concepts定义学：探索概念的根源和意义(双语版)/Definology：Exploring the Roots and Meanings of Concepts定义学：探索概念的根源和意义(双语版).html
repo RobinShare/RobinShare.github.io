@@ -310,11 +310,16 @@ kbd {
 * {
 	-webkit-print-color-adjust: exact;
 }
-@media screen and (min-width: 914px) {
-    body {
-        width: 854px;
-        margin:0 auto;
-    }
+/* 移动终端适配 */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+    margin:0 auto;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
 }
 @media print {
 	table, pre {

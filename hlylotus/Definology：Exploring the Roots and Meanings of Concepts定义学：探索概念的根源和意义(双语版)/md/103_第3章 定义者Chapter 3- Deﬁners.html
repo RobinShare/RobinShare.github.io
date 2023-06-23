@@ -340,6 +340,66 @@ kbd {
 
 <body>
 
+
+   <script>
+    // 获取访问者的地理位置信息
+    function getVisitorLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+      }
+    }
+
+    // 成功获取地理位置信息的回调函数
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // 根据经纬度判断是否在中国大陆范围内
+      var isInChina = isLocationInChina(latitude, longitude);
+
+      // 根据地理位置设置不同的背景图片
+      setBackgroundByLocation(isInChina);
+    }
+
+    // 获取地理位置信息失败的回调函数
+    function error(error) {
+      console.error('Failed to retrieve visitor location.');
+    }
+
+    // 根据经纬度判断是否在中国大陆范围内
+    function isLocationInChina(latitude, longitude) {
+      // 判断逻辑：根据中国大陆范围的经纬度边界判断
+      var chinaLatitudeMin = 18.15284;
+      var chinaLatitudeMax = 53.56086;
+      var chinaLongitudeMin = 73.49926;
+      var chinaLongitudeMax = 135.08798;
+
+      if (latitude >= chinaLatitudeMin && latitude <= chinaLatitudeMax &&
+          longitude >= chinaLongitudeMin && longitude <= chinaLongitudeMax) {
+        return true; // 在中国大陆范围内
+      } else {
+        return false; // 不在中国大陆范围内
+      }
+    }
+
+    // 根据地区设置背景图片
+    function setBackgroundByLocation(isInChina) {
+      var body = document.getElementsByTagName('body')[0];
+
+      if (isInChina) {
+        body.style.backgroundImage = "url('../pic/bg_donate.jpg')";
+      } else {
+        body.style.backgroundImage = "url('../pic/bg_donate_all.jpg')";
+      }
+    }
+
+    // 页面加载完毕时获取地理位置信息
+    window.addEventListener('load', getVisitorLocation);
+  </script>
+
+
 <h2 id="toc_0"><center><a href="./../Definology%EF%BC%9AExploring%20the%20Roots%20and%20Meanings%20of%20Concepts%E5%AE%9A%E4%B9%89%E5%AD%A6%EF%BC%9A%E6%8E%A2%E7%B4%A2%E6%A6%82%E5%BF%B5%E7%9A%84%E6%A0%B9%E6%BA%90%E5%92%8C%E6%84%8F%E4%B9%89(%E5%8F%8C%E8%AF%AD%E7%89%88).html"><font color=blue>第3章 定义者<p>Chapter 3: Deﬁners</font></a></center></h2>
 
 <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;定义者通常是对某个词语、术语、事物或概念进行定义的人或机构，其提出的定义内容可以来自于不同领域的知识和研究。以下是一些定义者的例子：<p align="justify">

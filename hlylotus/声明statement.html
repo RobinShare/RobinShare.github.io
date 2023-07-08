@@ -363,13 +363,73 @@ kbd {
 
 <h2 id="toc_0"><center><a href="./index.html"><font color=red>捐赠<p>Donate</font></a></center></h2>
 
+<center>
+  <div id="donateImage"><img src='document/images/img_donate.png' width='568' height='206'></div>
+</center>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<center><img src="document/images/img_donate_all.png" width="568" height="390"></center>
-<br>
-<br>
-<br>
-<br>
-<br>
+<script type="text/javascript">
+    // 获取访问者的地理位置信息
+    function getVisitorLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+      }
+    }
+
+    // 成功获取地理位置信息的回调函数
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // 根据经纬度判断是否在中国大陆范围内
+      var isInChina = isLocationInChina(latitude, longitude);
+
+      // 根据地理位置设置不同的捐赠图片
+      setDonatImageByLocation(isInChina);
+    }
+
+    // 获取地理位置信息失败的回调函数
+    function error(error) {
+      console.error('Failed to retrieve visitor location.');
+    }
+
+    // 根据经纬度判断是否在中国大陆范围内
+    function isLocationInChina(latitude, longitude) {
+      // 判断逻辑：根据中国大陆范围的经纬度边界判断
+      var chinaLatitudeMin = 18.15284;
+      var chinaLatitudeMax = 53.56086;
+      var chinaLongitudeMin = 73.49926;
+      var chinaLongitudeMax = 135.08798;
+
+      if (latitude >= chinaLatitudeMin && latitude <= chinaLatitudeMax &&
+          longitude >= chinaLongitudeMin && longitude <= chinaLongitudeMax) {
+        return true; // 在中国大陆范围内
+      } else {
+        return false; // 不在中国大陆范围内
+      }
+    }
+
+    // 根据地区设置捐赠图片
+    function setDonatImageByLocation(isInChina) {
+      var imageChina =  "<img src='document/images/img_donate.png' width='568' height='206'>"
+      var imageOutside =  "<img src='document/images/img_donate_all.png' width='568' height='390'>"
+
+      if (isInChina) {
+        document.getElementById('donateImage').innerHTML = imageChina;
+      } else {
+        document.getElementById('donateImage').innerHTML = imageOutside;
+      }
+    }
+
+    // 页面加载完毕时获取地理位置信息
+    window.addEventListener('load', getVisitorLocation);
+  </script>
 
 
 <footer>

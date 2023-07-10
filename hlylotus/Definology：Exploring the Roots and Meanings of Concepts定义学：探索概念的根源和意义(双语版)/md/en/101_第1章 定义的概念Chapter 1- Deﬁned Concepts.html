@@ -10,6 +10,27 @@
   gtag('js', new Date());
 
   gtag('config', 'G-7DSVNNFSCR');
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -26,6 +47,16 @@ body {
   padding-bottom: 10px;
   background-color: white;
   padding: 30px; }
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
 
 .footer-content {
      position: fixed;
@@ -348,7 +379,11 @@ kbd {
 
 </head>
 
-<body>
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
 
 <h2 id="toc_0"><center><a href="./../../Definology%EF%BC%9AExploring%20the%20Roots%20and%20Meanings%20of%20Concepts%E5%AE%9A%E4%B9%89%E5%AD%A6%EF%BC%9A%E6%8E%A2%E7%B4%A2%E6%A6%82%E5%BF%B5%E7%9A%84%E6%A0%B9%E6%BA%90%E5%92%8C%E6%84%8F%E4%B9%89(%E5%8F%8C%E8%AF%AD%E7%89%88).html"><font color=blue>第1章 定义的概念<p>Chapter 1: Deﬁned Concepts</font></a></enter></h2>
 

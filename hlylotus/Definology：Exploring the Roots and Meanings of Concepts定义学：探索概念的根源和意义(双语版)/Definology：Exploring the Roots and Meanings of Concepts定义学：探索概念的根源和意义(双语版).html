@@ -10,6 +10,28 @@
   gtag('js', new Date());
 
   gtag('config', 'G-7DSVNNFSCR');
+
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +49,17 @@ padding-bottom: 10px;
 background-color: white;
 padding: 30px; 
 }
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
+
 
 body > *:first-child {
 margin-top: 0 !important; }
@@ -347,7 +380,12 @@ padding: 2cm;
 
 </head>
 
-<body>
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
+
 <center><img style="max-width:100%;overflow:hidden;" src="../document/images/definology.png"></center>
 
 <h1><center><font color=black>《定义学：探索概念的根源和意义》<p>Definology：Exploring the Roots and Meanings of Concepts</font></center></h1>
@@ -406,7 +444,6 @@ padding: 2cm;
 <center><a href="./md/en/403_附录 书籍的新定义Appendix- A New Deﬁnition of Books.html"><font color=blue>Appendix: A New Deﬁnition of Books </font></a></center><p>
 <center><a href="./md/zh/404_书籍索引Book Index.html"><font color=blue>书籍索引 </font></a></center><p>
 <center><a href="./md/en/404_书籍索引Book Index.html"><font color=blue>Book Index </font></a></center><p></p>
-
 
 </body>
 

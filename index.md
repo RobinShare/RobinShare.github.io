@@ -11,7 +11,7 @@ layout: default
   gtag('config', 'G-7DSVNNFSCR');
 </script>
 
-永恒的变，才是不变的真理。
+永恒的变，才是真理。
 
 
 
@@ -29,6 +29,7 @@ layout: default
 >
 >  我来迟了，2019。
 
+---
 # BookList In URL
 [Internet Archive](https://archive.org/)
 
@@ -54,7 +55,7 @@ nlc.cn (国家数字图书馆)
 www.ximalaya.com (喜马拉雅有声阅读)
 (大学图书馆) 等
 
-[Z-Library articles](https://booksc.org/)
+[Z-Library articles](https://singlelogin.re/)
 
 >Part of Z-Library project. The world's largest scientific articles store. 70,000,000+ articles for free.
 
@@ -79,6 +80,8 @@ A guide to effective catalog searching.
 
 [FoxGreat](https://foxgreat.com/) &nbsp;&nbsp;&nbsp;[CoderProg](https://coderprog.com/) &nbsp;&nbsp;&nbsp;[AvaxHome](https://avxhm.se/) &nbsp;&nbsp;&nbsp;[LetMeRead](https://www.letmeread.net/) &nbsp;&nbsp;&nbsp;[SaltTiger](https://salttiger.com/) &nbsp;&nbsp;&nbsp;[我爱电子书](https://www.52doc.com/) &nbsp;&nbsp;&nbsp;[书栈网](https://www.bookstack.cn/)
 
+---
+# TeadryCom Original Book
+[《定义学：探索概念的根源和意义(双语版)》](hlylotus/index.html)
 
-
-[hlylotus 2022.08.04](hlylotus/index.html)
+[《Definology：Exploring the Roots and Meanings of Concepts(双语版)》](hlylotus/index.html)

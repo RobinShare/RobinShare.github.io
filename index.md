@@ -82,6 +82,6 @@ A guide to effective catalog searching.
 
 ---
 # TeadryCom Original Book
-[《定义学：探索概念的根源和意义(双语版)》](hlylotus/index.html)
+[《定义学：探索概念的根源和意义(双语版)》](robinshare/index.html)
 
-[《Definology：Exploring the Roots and Meanings of Concepts(双语版)》](hlylotus/index.html)
+[《Definology：Exploring the Roots and Meanings of Concepts(双语版)》](robinshare/index.html)

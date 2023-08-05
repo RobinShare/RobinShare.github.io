@@ -81,7 +81,7 @@ A guide to effective catalog searching.
 [FoxGreat](https://foxgreat.com/) &nbsp;&nbsp;&nbsp;[CoderProg](https://coderprog.com/) &nbsp;&nbsp;&nbsp;[AvaxHome](https://avxhm.se/) &nbsp;&nbsp;&nbsp;[LetMeRead](https://www.letmeread.net/) &nbsp;&nbsp;&nbsp;[SaltTiger](https://salttiger.com/) &nbsp;&nbsp;&nbsp;[我爱电子书](https://www.52doc.com/) &nbsp;&nbsp;&nbsp;[书栈网](https://www.bookstack.cn/)
 
 ---
-# TeadryCom Original Book
+# Teadry.Com Original Book
 [《定义学：探索概念的根源和意义(双语版)》](robinshare/index.html)
 
 [《Definology：Exploring the Roots and Meanings of Concepts(双语版)》](robinshare/index.html)

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DSVNNFSCR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DSVNNFSCR');
+
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>312_第12章 定义之创新根源Chapter 12- Deﬁnition is the Roots of Innovation</title>
+
+
+<style type="text/css">
+/* 设置按钮的样式，这里使用示意图标表示卡通样式 */
+#playPauseButton {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 204, 0, 0.1); /* 卡通样式的颜色 */
+    border: none;
+    border-radius: 50%; /* 将按钮设置成圆形 */
+    background-image: url(../../pic/play_icon.png); /* 播放时的图标 */
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* 暂停状态的样式 */
+#playPauseButton.paused {
+    background-image: url(../../pic/pause_icon.png); /* 暂停时的图标 */
+}
+
+body {
+  // background: url(../pic/bg_donate.jpg);
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
+
+.footer-content {
+     position: fixed;
+     color: currentColor;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     padding: 20px;
+     text-align: center;
+    }
+    
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
+
+<!-- 使用 <audio> 元素插入 MP3 音频 -->
+<audio id="audioPlayer" controls autoplay>
+    <source src="./audio/第12章 定义之创新根源/第12章 定义之创新根源.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- 添加一个按钮，用于控制音频的播放和暂停 -->
+<button id="playPauseButton"></button>
+
+<script>
+    // JavaScript代码，用于实现按钮的随机移动和音频控制
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playPauseButton = document.getElementById('playPauseButton');
+
+    // 按钮点击事件，控制音频的播放和暂停
+    playPauseButton.addEventListener('click', function () {
+        if (audioPlayer.paused) {
+             audioPlayer.play();
+             playPauseButton.classList.remove('paused'); // 移除暂停样式
+        } else {
+            audioPlayer.pause();
+            playPauseButton.classList.add('paused'); // 添加暂停样式
+        }
+    });
+</script>
+  <!--  <script>
+    // 获取访问者的地理位置信息
+    function getVisitorLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+      }
+    }
+
+    // 成功获取地理位置信息的回调函数
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // 根据经纬度判断是否在中国大陆范围内
+      var isInChina = isLocationInChina(latitude, longitude);
+
+      // 根据地理位置设置不同的背景图片
+      setBackgroundByLocation(isInChina);
+    }
+
+    // 获取地理位置信息失败的回调函数
+    function error(error) {
+      console.error('Failed to retrieve visitor location.');
+    }
+
+    // 根据经纬度判断是否在中国大陆范围内
+    function isLocationInChina(latitude, longitude) {
+      // 判断逻辑：根据中国大陆范围的经纬度边界判断
+      var chinaLatitudeMin = 18.15284;
+      var chinaLatitudeMax = 53.56086;
+      var chinaLongitudeMin = 73.49926;
+      var chinaLongitudeMax = 135.08798;
+
+      if (latitude >= chinaLatitudeMin && latitude <= chinaLatitudeMax &&
+          longitude >= chinaLongitudeMin && longitude <= chinaLongitudeMax) {
+        return true; // 在中国大陆范围内
+      } else {
+        return false; // 不在中国大陆范围内
+      }
+    }
+
+    // 根据地区设置背景图片
+    function setBackgroundByLocation(isInChina) {
+      var body = document.getElementsByTagName('body')[0];
+
+      if (isInChina) {
+        body.style.backgroundImage = "url('../pic/bg_donate.jpg')";
+      } else {
+        body.style.backgroundImage = "url('../pic/bg_donate_all.jpg')";
+      }
+    }
+
+    // 页面加载完毕时获取地理位置信息
+    window.addEventListener('load', getVisitorLocation);
+  </script> -->
+
+
+<h2 id="toc_0"><center><a href="./../../Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(中英双语).html"><font color=blue>第12章 定义之创新根源<p>Chapter 12: Deﬁnition is the Roots of Innovation</font></a></center></h2>
+
+<p>&emsp;&emsp;&emsp;&emsp;定义是创新的根源，因为定义本身就是对某一概念或现象的精准描述，能够准确地揭示事物的本质和特征，为后续的研究和创新提供了基础和保障。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Definition is the source of innovation, because definition itself is a precise description of a concept or phenomenon, which can accurately reveal the essence and characteristics of things, and provide the foundation and guarantee for subsequent research and innovation.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;定义与创新之间的关系是，定义为创新提供了基础，而创新则使定义更新和发展。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The relationship between definition and innovation is that definition provides the foundation for innovation, while innovation makes definition update and develop.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;举例来说，汽车一开始被定义为一种交通工具，但是随着技术的进步和创新，汽车逐渐演变成为更高效、更环保、更智能的交通工具。这些创新不仅使汽车变得更加先进，也推动着相关的定义和标准在不断地更新和发展。因此，我们可以看到，在创新的推动下，定义在不断地演化和改变，以适应新的需求和潮流。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, cars were initially defined as a means of transportation, but with the advancement and innovation of technology, cars gradually evolved into more efficient, environmentally friendly and intelligent means of transportation. These innovations not only make cars more advanced, but also promote the update and development of related definitions and standards. Therefore, we can see that under the impetus of innovation, definitions are constantly evolving and changing to adapt to new needs and trends.<p align="justify"></p>
+
+<p><strong>定义是创新的基础与根源？</strong><p align="justify">
+<strong>Definition is the foundation and source of innovation?</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;在科学领域，定义是创新的基础。科学家需要定义新概念、新现象、新理论，以便进一步研究和发现新知识。例如，伽利略定义了自由落体运动，牛顿定义了万有引力定律和运动定律，爱因斯坦定义了相对论等等，这些定义为后来的科学研究和发现提供了基础。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In the scientific field, definition is the foundation of innovation. Scientists need to define new concepts, new phenomena, new theories, etc., in order to further study and discover new knowledge. For example, Galileo defined free fall motion, Newton defined the law of universal gravitation and the laws of motion, Einstein defined relativity, etc., these definitions provide the foundation for later scientific research and discovery.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;在商业领域，定义也是创新的基础。企业需要定义新产品、新服务、新市场等，以便满足消费者的需求，提高市场占有率和竞争力。例如，苹果公司定义了iPhone、iPad等产品，亚马逊定义了在线零售和云计算服务等，这些定义为企业的发展和创新提供了基础。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In the business field, definition is also the foundation of innovation. Enterprises need to define new products, new services, new markets, etc., in order to meet consumer needs, increase market share and competitiveness. For example, Apple defined products such as iPhone and iPad, Amazon defined online retail and cloud computing services, etc., these definitions provide the foundation for enterprise development and innovation.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;在社会科学领域，定义同样是创新的基础。社会科学家需要定义新的社会现象、新的社会问题，以便分析和解决这些问题。例如，马克思定义了资本主义和阶级斗争的概念，韦伯定义了社会阶层和权威的概念等，这些定义为社会科学研究和社会变革提供了基础。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In the social science field, definition is also the foundation of innovation. Social scientists need to define new social phenomena, new social problems, etc., in order to analyze and solve these problems. For example, Marx defined concepts such as capitalism and class struggle, Weber defined concepts such as social class and authority, etc., these definitions provide the foundation for social science research and social change.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;总之，定义是创新的根源，因为它为研究和创新提供了精准的描述和基础。在各个领域，定义都是创新不可或缺的基础。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In summary, definition is the source of innovation because it provides a precise description and foundation for research and innovation. In various fields, definition is an indispensable foundation for innovation.<p align="justify"></p>
+
+<p><strong>定义与创新可以互相促进和支持？</strong><p align="justify">
+<strong>Definition and innovation can promote and support each other?</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>定义为创新提供基础。</strong>定义是事物的本质和属性的明确描述，而这些本质和属性可以为创新提供基础。例如，在计算机科学中，定义了“算法”这一概念，为算法的创新提供了基础，使得计算机科学家们能够创造出更加高效和有效的算法。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Definition provides the foundation for innovation.</strong> Definition is a clear description of the essence and attributes of things, which can provide the foundation for innovation. For example, in computer science field, “algorithm” concept was defined to provide a basis for algorithm innovation, enabling computer scientists to create more efficient and effective algorithms.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>定义促进创新的沟通和协作。</strong>定义是对事物的共同理解和描述，也是创新团队之间交流和协作的基础。例如，在跨学科的研究项目中，不同学科之间的专业术语和定义不同，会导致沟通障碍和误解。通过对术语和定义进行明确和统一，可以促进团队之间的沟通和协作，从而推动创新的发展。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Definition promotes communication and collaboration for innovation.</strong> Definition is a common understanding and description of things, which is also the basis for communication and collaboration among innovative teams. For example, in cross-disciplinary research projects, different disciplines have different professional terms and definitions that may cause communication barriers and misunderstandings. By clarifying and unifying terms and definitions can promote communication and collaboration among teams thus advancing development of innovation.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>创新挑战定义的限制和局限。</strong>定义虽然可以为创新提供基础和促进沟通，但也可能成为创新的限制和局限。创新需要打破传统的定义和思维定式，开创新的领域和方向。例如，在医学领域，定义了一些疾病的病因和治疗方法，但随着科技的进步和知识的积累，可能会出现新的治疗方法和疾病分类，需要打破原有的定义和思维定式，创新出新的疾病治疗方法。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Innovation challenges the limitations and constraints of definitions.</strong> Although definitions can provide foundations and promote communication for innovation, they may also become limitations and constraints for innovation. Innovation requires breaking traditional definitions and thinking patterns, creating new fields and directions. For example, in the medical field, some diseases’ causes and treatment methods are defined, but with the advancement of technology and knowledge accumulation, new treatment methods and disease classifications may appear, requiring breaking original definitions and thinking patterns, innovating new disease treatment methods.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>创新可以重定义事物的概念和定义。</strong>创新可以为事物带来新的定义和概念，从而使得原来的定义得到重新审视和重构。例如，在社交网络领域，随着人们对社交的不同需求和方式的变化，社交的概念和定义也在不断发生变化，需要创新的思维和方法来重新定义社交的本质和属性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Innovation can redefine concepts and definitions of things.</strong> Innovation can bring new definitions and concepts to things, thus making original definitions re-examined and reconstructed. For example, in the social network field, as people’s different needs and ways of socializing change, social concepts and definitions are also constantly changing, requiring innovative thinking and methods to redefine social essence and attributes.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>创新需要对已有定义进行挑战和修正。</strong>创新需要对已有定义进行挑战和修正，以使得定义更加符合实际和未来的需求。例如，在人工智能领域，随着技术的发展和应用的推广，已有的人工智能定义可能会出现局限和不足，需要进行修正和扩展，以适应未来人工智能的发展。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Innovation requires challenging and revising existing definitions.</strong> Innovation requires challenging and revising existing definitions to make them more in line with reality and future needs. For example, in the artificial intelligence field, as technology develops and applications expand, existing artificial intelligence definitions may have limitations and shortcomings that need to be revised and expanded to adapt to future artificial intelligence development.<p align="justify"></p>
+
+<br><br><br><br><br><br>
+
+<footer>
+  <div class="footer-content">
+    <p>Copyright&copy; Since 2023 by RobinShare.</p><p>All rights reserved.<a href="../../../声明statement.html">声明 Statement</a><p>
+  </div>
+</footer>
+
+</body>
+
+</html>

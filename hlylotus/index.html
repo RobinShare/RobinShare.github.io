@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DSVNNFSCR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DSVNNFSCR');
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+</script>
+	<meta charset="UTF-8">
+	<title>Music_Album</title>
+	<link rel="stylesheet" href="document/css/style.css">
+	<link rel="stylesheet" href="document/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="document/test/index.css">
+	<link rel="stylesheet" type="text/css" href="document/test/style.css">
+
+	<style>
+
+		*{margin: 0; padding: 0;}
+		ul, li{list-style: none;}
+		.box{ width: 400px; height: 500px; overflow: hidden; margin-bottom: 20px;}
+		.box li{padding: 0 10px; height: 40px; line-height: 40px;}
+
+		.footer-content {
+			 position: fixed;
+		    color: currentColor;
+		    left: 0;
+		    bottom: 0;
+    		 width: 100%;
+		    padding: 20px;
+		    text-align: center;
+		  }
+		
+	</style>
+</head>
+<body>	
+	<div id="music-box">	
+		<div class="left-box">
+			<table>
+				<thead>
+					<tr>
+						<th>歌名</th>
+						<th>歌手</th>
+					</tr>
+				</thead>
+				<tbody>	
+				</tbody>
+			</table>
+		</div>
+		<div class="right-box">
+			<div id="lyric">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+		</div>
+		<div class="foot-box">
+			<audio src="document/song" autoplay="autoplay"></audio>
+			<div id="play-progress">
+				<div class="time-bar">
+					<span id="song">童话镇</span>
+					<span id="singer">（陈一发）</span>
+					<div id="line1"></div>
+					<div id="circle"></div>
+					<div id="line"></div>
+					<span id="cur-time">00:00&nbsp</span>
+					<span id="end-time">/&nbsp00:00</span>
+				</div>
+				<div id="order-repeat">
+					<span class="glyphicon glyphicon-menu-hamburger" id="order"></span>
+					<span class="glyphicon glyphicon-repeat" id="repeat"></span>
+				</div>
+				<div id="volume-up-off">
+					<span class="glyphicon glyphicon-volume-up" id="volume-up"></span>
+					<span class="glyphicon glyphicon-volume-off" id="volume-off"></span>
+				</div>
+				
+			</div>
+			<div class="play-operation">
+				<span class="glyphicon glyphicon-backward" id="prev"></span>
+				<div id="play-pause">
+					<span class="glyphicon glyphicon-play" id="play"></span>
+					<span class="glyphicon glyphicon-pause" id="pause"></span>
+				</div>
+				<span class="glyphicon glyphicon-forward" id="next"></span>
+			</div>
+		</div>	
+	</div>
+
+	<div class="maxDiv center">
+    <div class="minDiv center" >
+        <div><img src="document/test/images/1.jpg"></div>
+        <div><img src="document/test/images/2.jpg"></div>
+        <div><img src="document/test/images/3.jpg"></div>
+        <div><img src="document/test/images/4.jpg"></div>
+        <div><img src="document/test/images/5.jpg"></div>
+        <div><img src="document/test/images/6.jpg"></div>
+        <span class="center" onclick="window.location.href='Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(LanguageAll)/Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(LanguageAll).html'">
+            <div><img src="document/test/images/1.jpg"></div>
+            <div><img src="document/test/images/2.jpg"></div>
+            <div><img src="document/test/images/3.jpg"></div>
+            <div><img src="document/test/images/4.jpg"></div>
+            <div><img src="document/test/images/5.jpg"></div>
+            <div><img src="document/test/images/6.jpg"></div>
+ 		    </span>
+    </div>
+	</div>
+    <script src="document/js/event.js"></script>
+	<script src="document/js/fun.js"></script>
+
+	<div class="canvas">
+
+     <div class="flower" id="flower1">
+        <div class="petal petal1 f1p"></div>
+        <div class="petal petal2 f1p"></div>
+        <div class="petal petal3 f1p"></div>
+        <div class="petal petal4 f1p"></div>
+        <div class="petal petal5 f1p"></div>
+     </div>
+
+     <div class="flower" id="flower2">
+        <div class="petal petal1 f2p"></div>
+        <div class="petal petal2 f2p"></div>
+        <div class="petal petal3 f2p"></div>
+        <div class="petal petal4 f2p"></div>
+        <div class="petal petal5 f2p"></div>
+     </div>
+     
+     <div class="flower" id="flower3">
+        <div class="petal petal1 f3p"></div>
+        <div class="petal petal2 f3p"></div>
+        <div class="petal petal3 f3p"></div>
+        <div class="petal petal4 f3p"></div>
+        <div class="petal petal5 f3p"></div>
+     </div>
+
+     <div class="ebookclass ebookpetal petal1 f4p" id="ebookid">
+     	<img src="document/images/definology_印刷藏版.png" height="310" width="219">
+     </div>
+
+     <div class="flower" id="flower4">
+        <div class="petal petal1 f4p"></div>
+        <div class="petal petal2 f4p"></div>
+        <div class="petal petal3 f4p"></div>
+        <div class="petal petal4 f4p"></div>
+        <div class="petal petal5 f4p"></div>
+     </div>
+
+     <div class="flower" id="flower5">
+        <div class="petal petal1 f5p"></div>
+        <div class="petal petal2 f5p"></div>
+        <div class="petal petal3 f5p"></div>
+        <div class="petal petal4 f5p"></div>
+        <div class="petal petal5 f5p"></div>
+     </div>
+
+     <div class="flower" id="flower6">
+        <div class="petal petal1 f6p"></div>
+        <div class="petal petal2 f6p"></div> 
+        <div class="petal petal3 f6p"></div>
+        <div class="petal petal4 f6p"></div>
+        <div class="petal petal5 f6p"></div>
+     </div>
+     
+    </div>
+
+<footer>
+  <div class="footer-content">
+    <p>Copyright&copy; Since 2023 by RobinShare. All rights reserved.</p>
+    <ul>
+      <li><a href="./声明statement.html"><font color="black">版权声明&捐赠</font><br><font color="red">CopyRight Statement & Donate</font></a></li>
+      <!-- Add more links or content here -->
+    </ul>
+  </div>
+</footer>
+
+	
+</body>
+</html>

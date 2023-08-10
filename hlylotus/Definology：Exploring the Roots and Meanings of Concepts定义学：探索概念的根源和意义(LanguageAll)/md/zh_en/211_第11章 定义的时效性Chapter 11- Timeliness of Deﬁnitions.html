@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DSVNNFSCR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DSVNNFSCR');
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>211_第11章 定义的时效性Chapter 11- Timeliness of Deﬁnitions</title>
+
+
+<style type="text/css">
+/* 设置按钮的样式，这里使用示意图标表示卡通样式 */
+#playPauseButton {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 204, 0, 0.1); /* 卡通样式的颜色 */
+    border: none;
+    border-radius: 50%; /* 将按钮设置成圆形 */
+    background-image: url(../../pic/play_icon.png); /* 播放时的图标 */
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* 暂停状态的样式 */
+#playPauseButton.paused {
+    background-image: url(../../pic/pause_icon.png); /* 暂停时的图标 */
+}
+
+body {
+  // background: url(../pic/bg_donate.jpg);
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
+
+.footer-content {
+     position: fixed;
+     color: currentColor;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     padding: 20px;
+     text-align: center;
+    }
+    
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
+
+<!-- 使用 <audio> 元素插入 MP3 音频 -->
+<audio id="audioPlayer" controls autoplay>
+    <source src="./audio/第11章 定义的时效性/第11章 定义的时效性.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- 添加一个按钮，用于控制音频的播放和暂停 -->
+<button id="playPauseButton"></button>
+
+<script>
+    // JavaScript代码，用于实现按钮的随机移动和音频控制
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playPauseButton = document.getElementById('playPauseButton');
+
+    // 按钮点击事件，控制音频的播放和暂停
+    playPauseButton.addEventListener('click', function () {
+        if (audioPlayer.paused) {
+             audioPlayer.play();
+             playPauseButton.classList.remove('paused'); // 移除暂停样式
+        } else {
+            audioPlayer.pause();
+            playPauseButton.classList.add('paused'); // 添加暂停样式
+        }
+    });
+</script>
+   <!-- <script>
+    // 获取访问者的地理位置信息
+    function getVisitorLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+      }
+    }
+
+    // 成功获取地理位置信息的回调函数
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // 根据经纬度判断是否在中国大陆范围内
+      var isInChina = isLocationInChina(latitude, longitude);
+
+      // 根据地理位置设置不同的背景图片
+      setBackgroundByLocation(isInChina);
+    }
+
+    // 获取地理位置信息失败的回调函数
+    function error(error) {
+      console.error('Failed to retrieve visitor location.');
+    }
+
+    // 根据经纬度判断是否在中国大陆范围内
+    function isLocationInChina(latitude, longitude) {
+      // 判断逻辑：根据中国大陆范围的经纬度边界判断
+      var chinaLatitudeMin = 18.15284;
+      var chinaLatitudeMax = 53.56086;
+      var chinaLongitudeMin = 73.49926;
+      var chinaLongitudeMax = 135.08798;
+
+      if (latitude >= chinaLatitudeMin && latitude <= chinaLatitudeMax &&
+          longitude >= chinaLongitudeMin && longitude <= chinaLongitudeMax) {
+        return true; // 在中国大陆范围内
+      } else {
+        return false; // 不在中国大陆范围内
+      }
+    }
+
+    // 根据地区设置背景图片
+    function setBackgroundByLocation(isInChina) {
+      var body = document.getElementsByTagName('body')[0];
+
+      if (isInChina) {
+        body.style.backgroundImage = "url('../pic/bg_donate.jpg')";
+      } else {
+        body.style.backgroundImage = "url('../pic/bg_donate_all.jpg')";
+      }
+    }
+
+    // 页面加载完毕时获取地理位置信息
+    window.addEventListener('load', getVisitorLocation);
+  </script> -->
+
+
+<h2 id="toc_0"><center><a href="./../../Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(中英双语).html"><font color=blue>第11章 定义的时效性<p>Chapter 11: Timeliness of Deﬁnitions</font></a></center></h2>
+
+<p>&emsp;&emsp;&emsp;&emsp;定义的时效性是指定义在一定时间内能够保持有效性和适用性的能力，也就是定义的持久性和延续性。在定义的时效性中，需要考虑定义的使用场景、应用需求以及变化的环境等因素，确保定义能够在一定时间内保持其适用性和实用性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The timeliness of a definition refers to the ability of a definition to maintain its validity and applicability within a certain period of time, that is, the persistence and continuity of a definition. In the timeliness of a definition, factors such as the usage scenario, application requirements and changing environment of the definition need to be considered to ensure that the definition can maintain its applicability and practicality within a certain period of time.<p align="justify">
+<strong>界定一个定义的时效性，需要考虑哪些因素？</strong><p align="justify">
+<strong>What factors need to be considered when defining the timeliness of a definition?</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp; <strong>应用领域和目的：</strong>定义的时效性应该针对具体的应用领域和目的进行评估和判断。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; <strong>Application domain and purpose:</strong> The timeliness of a definition should be evaluated and judged according to the specific application domain and purpose.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;例如，对于计算机科学领域，随着技术的发展和变革，一些原来有效的定义可能已经不再适用。比如，早期计算机中的“软盘”定义是指一种使用磁性材料记录数据的存储设备，但随着技术的发展，现在的计算机已经很少使用软盘了，而更多地使用USB闪存驱动器等存储设备。因此，“软盘”这个定义已经不再具有时效性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; For example, in the field of computer science, with the development and change of technology, some original valid definitions may no longer be applicable. For example, in early computers, the definition of “floppy disk” refers to a storage device that uses magnetic material to record data, but with the development of technology, computers now rarely use floppy disks, but use USB flash drives and other storage devices more. Therefore, the definition of “floppy disk” no longer has timeliness.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子是法律领域中的定义时效性。法律领域的定义必须符合当时的法律法规和司法实践，如果法律法规或司法实践发生了变化，原来有效的定义可能需要进行修订或更新。例如，在某些国家或地区，同性婚姻在法律上被认可，因此，原来定义婚姻为男女之间的法律联合可能需要进行修订，以便适应新的法律规定。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; Another example is the timeliness of definitions in the legal field. The definitions in the legal field must conform to the current laws and regulations and judicial practices. If the laws and regulations or judicial practices change, the original valid definitions may need to be revised or updated. For example, in some countries or regions, same-sex marriage is legally recognized, so the original definition of marriage as a legal union between men and women may need to be revised to adapt to the new legal provisions.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>可持续性：</strong>一个定义的时效性也需要考虑其可持续性。一个好的定义应该是能够长期维持有效性的，而不是只有短暂的时效性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Sustainability:</strong> The timeliness of a definition also needs to consider its sustainability. A good definition should be able to maintain its validity for a long time, rather than only have a short-term timeliness.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;因为随着时间的推移和社会发展的变化，原先的定义可能已经不再适用或不足以满足当前的需求。如果定义的时效性不足，将会导致定义的实用性降低，从而影响到相关领域的应用和发展。因此，需要在定义的制定过程中考虑可持续性因素，以确保定义在长期内仍然具有实用性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Because with the passage of time and the changes in social development, the original definition may no longer be applicable or insufficient to meet the current needs. If the timeliness of the definition is insufficient, it will lead to a decrease in the practicality of the definition, which will affect the application and development of related fields. Therefore, sustainability factors need to be considered in the process of defining to ensure that the definition still has practicality in the long term.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;例如，对于医学领域的定义，随着医疗技术和医学知识的不断进步，原先的定义可能已经无法涵盖新的医学概念或新的医疗技术。如果定义的时效性不足，将会导致医学领域的研究和治疗方法受到限制，甚至可能会导致医疗事故的发生。因此，在制定医学领域的定义时，需要考虑到未来的发展和变化，以确保定义的时效性和可持续性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, for definitions in the medical field, with the continuous progress of medical technology and medical knowledge, the original definition may no longer be able to cover new medical concepts or new medical technologies. If the timeliness of the definition is insufficient, it will lead to limitations in research and treatment methods in the medical field, and may even lead to medical accidents. Therefore, when defining in the medical field, future development and changes need to be considered to ensure the timeliness and sustainability of the definition.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子是在环保领域中，定义需要考虑到可持续性因素。比如，“可持续发展”这个概念需要不断地适应新的环境、社会和经济变化，才能保证长期的可持续性。又如，“碳中和”这个概念也需要不断地根据科技进步、政策变化等因素进行更新和调整，以保证其在未来的可持续性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Another example is in the environmental protection field, where definitions need to consider sustainability factors. For example, the concept of “sustainable development” needs to constantly adapt to new environmental, social and economic changes in order to ensure long-term sustainability. Similarly, the concept of “carbon neutrality” also needs to be constantly updated and adjusted according to factors such as technological progress and policy changes to ensure its sustainability in the future.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>实践验证：</strong>如果定义在实践中能够持续发挥作用，并且能够适应变化的环境和需求，那么就说明其时效性较好。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Practical verification:</strong> If a definition can continue to play a role in practice and can adapt to changing environments and needs, then it means that its timeliness is good.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;一方面，实践验证可以帮助确认定义是否符合实际应用的需求和目标。如果定义不能很好地适应实际环境和场景，就需要对定义进行修正或者重新制定，以确保定义的有效性和实用性。另一方面，实践验证也可以为定义的修订提供依据和反馈，帮助不断地完善和优化定义，以适应新的需求和变化。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;On the one hand, practical verification can help confirm whether the definition meets the actual application needs and goals. If the definition cannot adapt well to the actual environment and scenario, it needs to be revised or redefined to ensure its validity and practicality. On the other hand, practical verification can also provide a basis and feedback for revising definitions, helping to continuously improve and optimize definitions to adapt to new needs and changes.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;举例来说，一个常见的实践验证是针对技术性概念的定义，需要进行实验验证。例如，对于一个软件开发的概念定义，需要通过实践测试和用户反馈来验证定义的正确性和实用性。如果在实践中发现定义不符合用户需求或者存在缺陷，就需要进行修订和优化。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, a common practical verification is for technical concepts that require experimental verification. For example, for a software development concept definition, it needs to be verified by practical testing and user feedback for its correctness and practicality. If it is found in practice that the definition does not meet user needs or has defects, it needs to be revised and optimized.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子是针对社会和文化概念的定义，需要考虑实际社会现象和文化变迁的影响。例如，对于一个人类学概念的定义，需要考虑不同文化和社会背景下的实践验证和反馈。如果定义不能很好地解释和适应实际社会现象和文化变迁，就需要对定义进行修订和完善。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Another example is for social and cultural concepts that need to consider the impact of actual social phenomena and cultural changes. For example, for an anthropological concept definition, it needs to consider practical verification and feedback in different cultural and social backgrounds. If the definition cannot explain and adapt well to actual social phenomena and cultural changes, it needs to be revised and improved.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;总之，一个定义的时效性是需要结合具体情况进行评估和判断的，需要考虑其应用领域和目的、可持续性以及实践验证等因素。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In summary, the timeliness of a definition needs to be evaluated and judged according to specific situations, considering factors such as its application domain and purpose, sustainability and practical verification.<p align="justify"></p>
+
+<p><strong>验证一个定义的时效性具体需要哪些步骤？</strong><p align="justify">
+<strong>What specific steps are needed to verify the timeliness of a definition?</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1.确定定义的应用领域和目的：</strong>不同领域和目的对定义的时效性有不同的要求和标准。例如，医疗领域对某些疾病的定义需要时刻更新，而对于某些基础概念的定义则相对稳定。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1. Determine the application domain and purpose of the definition:</strong> Different domains and purposes have different requirements and standards for the timeliness of the definition. For example, the medical field needs to update the definition of some diseases at any time, while the definition of some basic concepts is relatively stable.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2.收集相关信息和数据：</strong>收集相关文献、实验数据、实践经验等信息，了解该定义在实践中的表现和适用情况。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2. Collect relevant information and data:</strong> Collect relevant literature, experimental data, practical experience and other information to understand the performance and applicability of the definition in practice.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>3.分析数据和信息：</strong>对收集到的信息进行分析和比较，判断该定义在实践中的表现是否与当前的需求和预期相符。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>3. Analyze data and information:</strong> Analyze and compare the collected information to judge whether the performance of the definition in practice is consistent with the current needs and expectations.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>4.鉴定时效性：</strong>基于对数据和信息的分析和比较，鉴定该定义的时效性是否能够满足当前的需求和预期。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>4. Identify timeliness:</strong> Based on the analysis and comparison of data and information, identify whether the timeliness of the definition can meet the current needs and expectations.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>5.更新和调整：</strong>如果鉴定结果表明该定义已经过时或不再适用，需要进行更新和调整，以保证定义的时效性和有效性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>5. Update and adjust:</strong> If the identification results show that the definition is outdated or no longer applicable, it needs to be updated and adjusted to ensure the timeliness and validity of the definition.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;例如，在医学领域中，对某些疾病的定义需要根据新的病理学、分子生物学等知识不断更新。又如，在信息技术领域中，对某些术语和概念的定义需要根据新的技术发展和应用场景不断更新和调整。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; For example, in the medical field, definitions of some diseases need to be updated constantly according to new knowledge in pathology, molecular biology, etc. Similarly, in the information technology field, definitions of some terms and concepts need to be updated and adjusted according to new technological developments and application scenarios.<p align="justify"></p>
+
+<p><strong>在定义的时效性验证过程中，常见的方法包括：</strong><p align="justify">
+<strong>In the process of verifying the timeliness of a definition, common methods include:</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1.实证研究法：</strong>通过实际的数据和实例来验证定义的适用性和时效性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1. Empirical research method:</strong> Verify the applicability and timeliness of a definition through actual data and examples.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;常用的实证研究方法包括：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Common empirical research methods include:<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>统计分析法：</strong>利用大量数据进行分析，从而得出结论。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>Statistical analysis method:</strong> Use a large amount of data for analysis to draw conclusions.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;在医学领域，常常需要验证某种药品的有效期定义。例如，对于某种常用的口服药物，可能在药品说明书上定义了其有效期为2年。为了验证这个定义是否正确，可以对该药品在不同环境条件下的质量进行大量采样和检测，然后通过统计分析法对药品在不同环境条件下的质量变化进行研究，最终确定该药品的有效期范围。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In the medical field, it is often necessary to verify the validity period definition of a certain drug. For example, for a common oral drug, it may be defined in the drug instructions that its validity period is 2 years. To verify whether this definition is correct, a large number of samples and tests can be performed on the quality of this drug under different environmental conditions, and then use statistical analysis method to study the quality changes of this drug under different environmental conditions, and finally determine its validity period range.<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>实验研究法：</strong>通过实验进行研究，验证定义是否符合实际情况。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>Experimental research method:</strong> Conduct experiments to verify whether a definition conforms to reality.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;在材料科学领域，常常需要对某种新材料进行定义，例如，对于某种新型合金材料，需要确定其化学成分、晶体结构、力学性能等方面的定义。在这个过程中，可以采用实验研究法，通过一系列实验对该材料进行分析和测试，验证其化学成分、晶体结构、力学性能等方面的定义是否准确。例如，可以通过X射线衍射仪、电子显微镜等测试手段，对该材料的晶体结构和微观结构进行分析，从而验证其定义的准确性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In materials science field, it is often necessary to define a new material, such as a new type of alloy material, which needs to determine its chemical composition, crystal structure, mechanical properties and other aspects of definition. In this process, experimental research method can be used to analyze and test this material through a series of experiments to verify whether its chemical composition, crystal structure, mechanical properties and other aspects of definition are accurate. For example, X-ray diffraction instrument, electron microscope and other testing methods can be used to analyze its crystal structure and microstructure, thus verifying its definition accuracy.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>2.文献回顾法：</strong>通过对相关的文献和研究成果的分析和总结，来评估定义的时效性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2. Literature review method:</strong> Evaluate the timeliness of a definition by analyzing and summarizing relevant literature and research results.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;下面两个典型例子，说明文献回顾法在定义的时效性验证中的应用：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The following two typical examples illustrate the application of literature review method in verifying the timeliness of definitions:<p align="justify">
+<strong>例子1：针对某种疾病的定义时效性验证</strong><p align="justify">
+<strong>Example 1: Verification of timeliness for a disease definition</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;假设有一种疾病的定义已经存在多年，而近年来研究表明这种疾病的发病机制和临床表现与原先的定义有所不同。为了验证这个定义的时效性，可以通过文献回顾法搜集该疾病的相关研究文献，并对这些文献进行分析和综合，以确定该疾病的最新定义和特征，从而评估原有定义的时效性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Suppose there is a disease definition that has existed for many years, but recent research shows that its pathogenesis and clinical manifestations are different from those in its original definition. To verify its timeliness, literature review method can be used to collect relevant research literature on this disease and analyze and synthesize these literature to determine its latest definition and characteristics, thus evaluating its original timeliness.<p align="justify">
+<strong>例子2：针对某种技术术语的定义时效性验证</strong><p align="justify">
+<strong>Example 2: Verification of timeliness for a technical term</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;技术术语的定义通常会因为技术的进步和应用领域的变化而不断演变和更新。为了验证某个技术术语的定义是否还具有时效性，可以通过文献回顾法搜集该术语在不同领域的应用文献，并对这些文献进行综合分析，了解该术语在不同领域的使用情况，从而评估该术语的定义是否仍然准确和恰当。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The definitions of technical terms often evolve and update due to technological advances and changes in application fields. To verify whether a technical term’s definition still has timeliness, literature review method can be used to collect application literature on this term in different fields and synthesize them to understand how this term is used in different fields, thus evaluating whether its definition is still accurate and appropriate.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>3.专家评估法：</strong>通过邀请相关领域的专家对定义进行评估，以确定定义是否已经过时或需要更新。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>3. Expert evaluation method:</strong> Invite experts from related fields to evaluate whether a definition is outdated or needs updating.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;其中一个例子，在医学领域中，专家评估法被广泛用于评估临床实践指南的时效性。例如，对于针对心肺复苏的指南，专家可以根据最新的研究结果和临床实践，评估指南中的建议是否需要进行更新或修改。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;One example is in the medical field where expert evaluation method is widely used to evaluate clinical practice guidelines’ timeliness. For example, for guidelines on cardiopulmonary resuscitation (CPR), experts can evaluate whether recommendations need updating or modification based on latest research results and clinical practice.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子，在计算机科学领域中，专家评估法也被用于评估编程语言和算法的时效性。例如，当一个编程语言被发布一段时间后，专家可以评估其是否需要添加新功能或修改已有功能，以使其适应当前的技术需求和趋势。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Another example is in the computer science field, where expert evaluation method is also used to evaluate the timeliness of programming languages and algorithms. For example, when a programming language has been released for some time, experts can evaluate whether it needs new features or modifications to existing features to suit current technical needs and trends.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>4.逻辑推理法：</strong>通过对定义的内在逻辑和理论基础的分析和推理，来验证定义的时效性，通常包括演绎推理和归纳推理两种方法。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>4. Logical reasoning method:</strong> Verify the timeliness of a definition by analyzing and reasoning its internal logic and theoretical basis, usually including deductive reasoning and inductive reasoning methods.<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>演绎推理法：</strong>基于一组前提和逻辑规则，从而得出结论。它通过逻辑上的严密推导，判断定义是否符合逻辑原理。典型例子包括：<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>Deductive reasoning method:</strong> Based on a set of premises and logical rules, draw conclusions. It judges whether a definition conforms to logical principles by logical rigorous derivation. Typical examples include:<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>• 数学中的欧几里得几何：</strong>欧氏几何在公元前300年左右由希腊数学家欧几里得所著的《几何原本》中首次得到系统阐述，它基于一组公理和定义，通过演绎推理，推导出几何学上的定理和命题。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>• Euclidean geometry in mathematics:</strong> Euclidean geometry was first systematically expounded by Greek mathematician Euclid in his book “Elements” around 300 BC. It is based on a set of axioms and definitions, and derives geometric theorems and propositions by deductive reasoning.<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>• 物理学中的牛顿第一定律：</strong>牛顿第一定律也称为惯性定律，它规定物体如果不受力作用，将会保持匀速直线运动或静止状态。这个定律是基于质点的定义和牛顿运动定律的其他两个定律，通过演绎推理得出的。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>• Newton’s first law in physics:</strong> Newton’s first law, also known as the law of inertia, states that an object will maintain uniform linear motion or rest state if it is not acted upon by a force. This law is based on the definition of a particle and the other two laws of Newton’s motion, derived by deductive reasoning.<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>归纳推理法：</strong>通过一组具体的事实或案例，推导出普遍的规律或结论。它可以用来检验定义在实践中的可行性和有效性。典型例子包括：<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>Inductive reasoning method:</strong> Based on a set of specific facts or cases, derive general laws or conclusions. It can be used to test the feasibility and validity of a definition in practice. Typical examples include:<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>• 医学中的临床实验：</strong>临床实验通常通过对患者进行实验观察和数据收集，从而推断出某种疾病的治疗方法或药物的有效性。这种推理方式是通过大量的具体案例得出结论，从而验证定义的时效性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>• Clinical trials in medicine:</strong> Clinical trials usually infer the treatment methods or efficacy of a certain disease by conducting experimental observations and data collection on patients. This way of reasoning is to draw conclusions from a large number of specific cases, thus verifying the timeliness of the definition.<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>• 经济学中的市场分析：</strong>市场分析通过对市场现状和历史趋势的归纳，从而得出市场发展的规律和趋势，为企业和政府决策提供参考。这种推理方式是基于对大量实际数据和案例的归纳，验证定义的时效性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;<strong>• Market analysis in economics:</strong> Market analysis infers the laws and trends of market development by induction of market status and historical trends, providing reference for enterprise and government decision-making. This way of reasoning is based on the induction of a large amount of actual data and cases, verifying the timeliness of the definition.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>5.模拟仿真法：</strong>通过建立数学模型，并在计算机上进行仿真计算，来模拟实际情况，以验证定义的时效性。以下是两个典型的例子：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>5. Simulation method:</strong> By establishing mathematical models and performing simulation calculations on computers, simulate actual situations to verify the timeliness of definitions. Here are two typical examples:<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>城市交通定义的时效性验证：</strong>通过建立城市交通流动的数学模型，采用计算机仿真方法，可以模拟城市交通的运行情况，从而验证城市交通定义的时效性。例如，可以将城市道路网络、车辆流动、信号控制等因素纳入模型中，进行仿真计算，以评估当前城市交通系统的瓶颈和不足之处，为交通系统的改善提供依据。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Timeliness verification of urban traffic definition:</strong> By establishing a mathematical model of urban traffic flow and using computer simulation methods, urban traffic operation can be simulated to verify the timeliness of urban traffic definition. For example, factors such as urban road network, vehicle flow, signal control, etc. can be included in the model for simulation calculation to evaluate the bottlenecks and shortcomings of the current urban traffic system and provide a basis for improving the traffic system.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>航空航天领域定义的时效性验证：</strong>在航空航天领域，定义的时效性对飞行器的设计、开发、测试和运行至关重要。通过建立飞行器运行的数学模型，并采用计算机仿真方法，可以模拟各种飞行条件下的飞行器性能、气动、稳定性和控制特性，以验证定义的时效性。例如，在飞机设计中，可以采用数值模拟和计算机仿真的方法，模拟不同飞行条件下的飞机性能和飞行情况，以评估设计的合理性，并进行必要的调整和改进。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Timeliness verification of definitions in aerospace field:</strong> In aerospace field, timeliness of definitions is crucial for design, development, testing and operation of aircraft. By establishing mathematical models of aircraft operation and using computer simulation methods, aircraft performance, aerodynamics, stability and control characteristics under various flight conditions can be simulated to verify timeliness of definitions. For example, in aircraft design, numerical simulation and computer simulation methods can be used to simulate aircraft performance and flight conditions under different flight conditions to evaluate rationality of design and make necessary adjustments and improvements.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>6.对比研究法：</strong>通过与其他相关定义或实践进行比较，来验证定义的时效性。以下是两个典型的例子：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>6. Comparative research method:</strong> Compare with other relevant definitions or practices to verify timeliness of definitions. Here are two typical examples:<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>金融领域的“市场风险”定义：</strong>该定义指的是在市场价格变动中导致金融机构投资损失的概率。为验证该定义的时效性，可以采用对比研究法，比较不同国家或不同金融机构对市场风险的定义和评估方法，以确定该定义是否仍然适用于当前的金融环境和实践需要。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Definition of “market risk” in financial field:</strong> This definition refers to probability that financial institutions suffer investment losses due to market price fluctuations. To verify timeliness of this definition, comparative research method can be used to compare definitions and evaluation methods of market risk in different countries or financial institutions to determine whether this definition is still applicable to current financial environment and practical needs.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>人工智能领域的“强人工智能”定义：</strong>该定义指的是一种能够在所有智力任务上都超越人类的人工智能。为验证该定义的时效性，可以采用对比研究法，比较当前最先进的人工智能技术与该定义的要求之间的差距，以及不同研究团队对“强人工智能”的理解和研究进展，以确定该定义是否仍然具有实际意义和指导价值。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Definition of “strong artificial intelligence” in artificial intelligence field:</strong> This definition refers to a kind of artificial intelligence that can surpass human beings in all intellectual tasks. To verify timeliness of this definition, comparative research method can be used to compare current state-of-the-art artificial intelligence technologies with requirements of this definition, as well as understanding and research progress of different research teams on “strong artificial intelligence”, to determine whether this definition still has practical significance and guidance value.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>7.历史分析法：</strong>通过对定义的历史变迁和演化进行研究，了解其在不同时期的应用情况和变化，评估定义的适用性和持续性。以下是两个典型的例子：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>7. Historical analysis method:</strong> Study historical changes and evolution of definitions, understand their application situations and changes in different periods, evaluate their applicability and sustainability. Here are two typical examples:<p align="justify">
+<strong>例子1：历史数据分析法在疾病定义的时效性验证中的应用</strong><p align="justify">
+<strong>Example 1: Application of historical data analysis method in verifying timeliness of disease definitions</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;例如，当新病毒出现时，医学界需要及时提出该病毒的定义，以便对其进行诊断和治疗。在这种情况下，历史数据分析法可以用来验证该病毒的定义是否符合该病毒的临床表现和传播特征。通过比较不同疾病的历史数据，可以确定病毒定义的适用性和持续性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; For example, when a new virus appears, the medical community needs to propose a definition for it as soon as possible for diagnosis and treatment. In this case, historical data analysis method can be used to verify whether the definition of the virus is consistent with its clinical manifestations and transmission characteristics. By comparing historical data of different diseases, the applicability and sustainability of the virus definition can be determined.<p align="justify">
+<strong>例子2：历史数据分析法在金融市场定义的时效性验证中的应用</strong><p align="justify">
+<strong>Example 2: Application of historical data analysis method in verifying timeliness of financial market definitions</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;例如，金融市场中存在各种金融产品，需要针对不同的金融产品提出相应的定义。在这种情况下，历史数据分析法可以用来验证定义的适用性和持续性。通过比较不同金融产品的历史数据，可以确定定义是否具有适用性和持续性，以便为投资者提供更好的金融产品。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, there are various financial products in the financial market, and corresponding definitions need to be proposed for different financial products. In this case, historical data analysis method can be used to verify the applicability and sustainability of definitions. By comparing historical data of different financial products, it can be determined whether definitions have applicability and sustainability, so as to provide better financial products for investors.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;这些方法可以单独或结合使用，以验证定义的时效性和有效性，并进一步完善和优化定义。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;These methods can be used separately or in combination to verify the timeliness and validity of definitions and further improve and optimize them.<p align="justify"></p>
+
+<br><br><br><br><br><br>
+
+<footer>
+  <div class="footer-content">
+    <p>Copyright&copy; Since 2023 by RobinShare.</p><p>All rights reserved.<a href="../../../声明statement.html">声明 Statement</a><p>
+  </div>
+</footer>
+
+</body>
+
+</html>

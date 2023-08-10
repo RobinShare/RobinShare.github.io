@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DSVNNFSCR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DSVNNFSCR');
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>105_第5章 定义的对象Chapter 5- Deﬁned Objects</title>
+
+
+<style type="text/css">
+/* 设置按钮的样式，这里使用示意图标表示卡通样式 */
+#playPauseButton {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 204, 0, 0.1); /* 卡通样式的颜色 */
+    border: none;
+    border-radius: 50%; /* 将按钮设置成圆形 */
+    background-image: url(../../pic/play_icon.png); /* 播放时的图标 */
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* 暂停状态的样式 */
+#playPauseButton.paused {
+    background-image: url(../../pic/pause_icon.png); /* 暂停时的图标 */
+}
+
+body {
+  // background: url(../pic/bg_donate.jpg);
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
+
+.footer-content {
+     position: fixed;
+     color: currentColor;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     padding: 20px;
+     text-align: center;
+    }
+    
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
+
+<!-- 使用 <audio> 元素插入 MP3 音频 -->
+<audio id="audioPlayer" controls autoplay>
+    <source src="./audio/第5章 定义的对象/第5章 定义的对象.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- 添加一个按钮，用于控制音频的播放和暂停 -->
+<button id="playPauseButton"></button>
+
+<script>
+    // JavaScript代码，用于实现按钮的随机移动和音频控制
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playPauseButton = document.getElementById('playPauseButton');
+
+    // 按钮点击事件，控制音频的播放和暂停
+    playPauseButton.addEventListener('click', function () {
+        if (audioPlayer.paused) {
+             audioPlayer.play();
+             playPauseButton.classList.remove('paused'); // 移除暂停样式
+        } else {
+            audioPlayer.pause();
+            playPauseButton.classList.add('paused'); // 添加暂停样式
+        }
+    });
+</script>
+   <!-- <script>
+    // 获取访问者的地理位置信息
+    function getVisitorLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+      }
+    }
+
+    // 成功获取地理位置信息的回调函数
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // 根据经纬度判断是否在中国大陆范围内
+      var isInChina = isLocationInChina(latitude, longitude);
+
+      // 根据地理位置设置不同的背景图片
+      setBackgroundByLocation(isInChina);
+    }
+
+    // 获取地理位置信息失败的回调函数
+    function error(error) {
+      console.error('Failed to retrieve visitor location.');
+    }
+
+    // 根据经纬度判断是否在中国大陆范围内
+    function isLocationInChina(latitude, longitude) {
+      // 判断逻辑：根据中国大陆范围的经纬度边界判断
+      var chinaLatitudeMin = 18.15284;
+      var chinaLatitudeMax = 53.56086;
+      var chinaLongitudeMin = 73.49926;
+      var chinaLongitudeMax = 135.08798;
+
+      if (latitude >= chinaLatitudeMin && latitude <= chinaLatitudeMax &&
+          longitude >= chinaLongitudeMin && longitude <= chinaLongitudeMax) {
+        return true; // 在中国大陆范围内
+      } else {
+        return false; // 不在中国大陆范围内
+      }
+    }
+
+    // 根据地区设置背景图片
+    function setBackgroundByLocation(isInChina) {
+      var body = document.getElementsByTagName('body')[0];
+
+      if (isInChina) {
+        body.style.backgroundImage = "url('../pic/bg_donate.jpg')";
+      } else {
+        body.style.backgroundImage = "url('../pic/bg_donate_all.jpg')";
+      }
+    }
+
+    // 页面加载完毕时获取地理位置信息
+    window.addEventListener('load', getVisitorLocation);
+  </script> -->
+
+
+<h2 id="toc_0"><center><a href="./../../Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(繁体中文).html"><font color=blue>第5章 定義的對象</font></a></center></h2>
+
+<p>&emsp;&emsp;&emsp;&emsp;定義的對像是人們所要描述或解釋的事物、概念、現像等。通過定義，人們可以對某一對象進行抽象和概括，以便更好地理解和表達。定義的對象可以是具體的物體或抽象的概念，可以是現實存在的實物或虛構的概念。在不同的領域和語境中，定義的對像也會有所不同。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;舉例來說，在數學中，定義的對象可以是數、函數、集合等。比如，我們可以定義“偶數”為能夠被2整除的整數，“函數”為從一個集合到另一個集合的映射關係等。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;在自然科學中，定義的對象可以是物質、能量、生物、化合物等。比如，在化學中，我們可以定義“氧化”為物質與氧氣發生反應，釋放出能量等。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;在社會科學中，定義的對象可以是社會結構、文化、價值觀念等。比如，在社會學中，我們可以定義“社會階層”為不同的社會群體按照其經濟地位、社會地位等因素分成的等級。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;在哲學和語言學中，定義的對象可以是概念、語言符號、命題等。比如，在哲學中，我們可以定義“真理”為符合客觀實際的思想或說法。在語言學中，我們可以定義“詞彙”為具有特定含義的語言符號等。 <p align="justify">
+
+<p><strong>定義的對像是如何產生的？ </strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;定義的對象通常是通過人類對自然界和社會世界的觀察、實驗、推理、經驗等方式產生的。人們通過對這些對象的認知和理解，逐漸形成了對它們的概念和定義。例如，對於自然界中的物種，人們通過對動植物的觀察和實驗，發現它們具有共性和差異性，從而產生了對它們的分類和定義。對於社會世界中的概念，人們通過對社會實踐和經驗的總結和抽象，形成了對社會制度、文化傳統、價值觀念等的概念和定義。 <p align="justify">
+
+<p><strong>定義的對象通常具有哪些特性？ </strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;定義的對像是指被定義的概念、事物、現像等。一個概念或事物的定義需要準確地描述其特性和屬性，以便使人們能夠清楚地理解和區分它與其他事物或概念的區別。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;具體來說，一個定義的對象通常具有以下特性：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>獨特性：</strong>一個定義的對象應該具有自己獨特的特徵和屬性，能夠與其他對象進行區分。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;這是因為定義的目的是為了準確地描述和界定一個特定的概念或實體，而不是其他概念或實體。以下是兩個典型例子：<p align="justify">
+<strong>例子1：沙漠</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;沙漠是一種地貌類型，它通常被定義為極少有植被覆蓋的干旱區域，年降水量非常少，通常低於250毫米。沙漠的定義要求它具有獨特的地貌特徵和生態系統，與其他類型的土地有所區別。 <p align="justify">
+<strong>例子2：雪人</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;雪人是一種傳說中的生物，通常被描述為由雪堆疊成的像人一樣的形狀。這個定義要求雪人具有特定的外觀和構成，與其他雪堆或雕塑不同。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;這些例子表明，定義的對象通常具有獨特性，需要通過準確的描述和界定來與其他對象區分開來。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>包容性：</strong>一個定義的對象應該能夠包含或涵蓋所有具有相似特徵的事物或概念。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;這是因為在定義一個概念時，需要將其所包含的所有情況都考慮在內，從而確保定義的完整性和準確性。以下是兩個典型例子：<p align="justify">
+<strong>例子1：動物概念的定義</strong> <p align="justify">
+&emsp;&emsp;&emsp;&emsp;動物是指一類有機體，其生命特徵為能夠自主運動、進行代謝、有感覺和適應環境等特徵。這個定義涵蓋了很多不同種類的動物，包括哺乳動物、鳥類、爬行動物、兩棲動物和魚類等，而且這些動物具有不同的形態、習性和生態角色，但它們都符合這個定義。 <p align="justify">
+<strong>例子2：數學中的集合概念</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;集合是由一些確定的、互異的對象組成的整體。在這個定義中，集合可以包含不同類型的對象，包括數字、圖形、符號和其他數學對象。這個定義還包括一些特殊情況，如空集和全集，以及各種類型的集合操作，如並集、交集和差集等。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;這些例子表明，在定義的過程中，需要考慮到概念所包含的所有情況，以確保定義的全面性和準確性。這種包容性是定義的重要特點之一。 <p align="justify">
+  
+<p>&emsp;&emsp;&emsp;&emsp;<strong>具體性：</strong>一個定義的對象應該能夠描述事物或概念的具體特徵和屬性，而不是籠統或模糊的描述。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;這是因為定義需要確切地描述和界定某個具體事物或概念，以便於人們進行理解和溝通。具體性的定義對象可以直觀地呈現出其特點和屬性，便於人們理解和使用。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;舉例來說，&quot;貓&quot;是一個具體性的定義對象，因為它描述了一種具體的動物，人們可以通過外形、習性、行為等方面對貓進行更加具體的描述和區分。另一個例子是&quot;汽車&quot;，也是一個具體性的定義對象，因為它可以指代一種具體的交通工具，人們可以對不同種類的汽車進行分類和區分，如轎車、卡車、客車等。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;雖然定義的對象通常具有具體性，但也有一些抽象的概念或理論可以被定義，例如，&quot;自由&quot;、&quot;民主&quot;等，這些抽象概念的定義需要通過嚴謹的邏輯和清晰的語言表述來確切描述其含義和內涵。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>確定性：</strong>一個定義的對象應該能夠準確地描述事物或概念的本質特徵和屬性，以避免歧義或誤解。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;這是因為定義需要明確的語言來描述和解釋對象的特徵和屬性，以便在不同的語境中使用。具體而言，定義的對象必須具有清晰的邊界和屬性，以便將其與其他對象區分開來。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;舉例來說，一個常見的定義的對像是“矩形”，它具有明確的邊界和屬性，即四個角都是直角且對邊長度相等。這種確定性的特徵使得矩形可以在數學和工程領域中廣泛應用，例如，計算矩形的面積和周長，或將其作為建築物或家具設計的基礎。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一個例子是“人類”，雖然人類在不同的文化和社會背景中可能具有不同的屬性和特徵，但是人類作為一個定義的對象，在其生理和心理特徵方面具有確定性。這種確定性使得人類可以被用於研究人類行為、心理學、醫學等多個領域中，以便更好地了解人類的本質和特徵。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>可理解性：</strong>一個定義的對象應該能夠被人們理解和掌握，以便能夠在交流和應用中得到有效的運用。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;這是因為定義的對象通常是人們日常生活中已經熟悉和了解的事物，定義可以幫助人們更加準確地描述和理解這些事物。同時，定義的對像也需要具有足夠的清晰度和簡潔性，以確保人們可以清楚地理解和使用該定義。 <p align="justify">
+&emsp;&emsp;&emsp;&emsp;舉例來說，汽車可以被定義為一種交通工具，用於運輸人和物品。這個定義簡單明了，易於理解和接受。同樣地，水可以被定義為一種透明、無色、無味、無臭的液體，這個定義也非常清晰明了，能夠被人們輕鬆理解和接受。 <p align="justify">
+
+<br><br><br><br><br><br>
+
+<footer>
+  <div class="footer-content">
+    <p>版權所有&copy;自2023年起 由RobinShare所有。 </p><p>保留所有權利。 <a href="../../../声明statement.html">聲明 Statement</a><p>
+  </div>
+</footer>
+
+
+</body>
+
+</html>

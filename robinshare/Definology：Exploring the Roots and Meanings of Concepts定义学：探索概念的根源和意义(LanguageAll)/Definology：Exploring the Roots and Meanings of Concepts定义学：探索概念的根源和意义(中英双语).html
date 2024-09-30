@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DSVNNFSCR"></script>
+<script>
+  // 打开弹窗
+  function openPopup() {
+     if (document.referrer === 'https://robinshare.github.io/robinshare/Definology%EF%BC%9AExploring%20the%20Roots%20and%20Meanings%20of%20Concepts%E5%AE%9A%E4%B9%89%E5%AD%A6%EF%BC%9A%E6%8E%A2%E7%B4%A2%E6%A6%82%E5%BF%B5%E7%9A%84%E6%A0%B9%E6%BA%90%E5%92%8C%E6%84%8F%E4%B9%89(LanguageAll)/Definology%EF%BC%9AExploring%20the%20Roots%20and%20Meanings%20of%20Concepts%E5%AE%9A%E4%B9%89%E5%AD%A6%EF%BC%9A%E6%8E%A2%E7%B4%A2%E6%A6%82%E5%BF%B5%E7%9A%84%E6%A0%B9%E6%BA%90%E5%92%8C%E6%84%8F%E4%B9%89(LanguageAll).html') {
+            document.getElementById("popup").style.display = "block";
+        }
+  }
+
+  // 关闭弹窗
+  function closePopup() {
+      document.getElementById("popup").style.display = "none";
+  }
+
+  // 在页面加载时自动触发弹窗
+  window.onload = openPopup;
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DSVNNFSCR');
+
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(双语版)</title>
+
+
+<style type="text/css">
+/* 弹窗样式 */
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#popup-content {
+    background-color: #ffffff;
+    width: 80%; /* 设置弹窗宽度为页面宽度的80% */
+    max-width: auto;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto; /* 启用纵向滚动条 */
+    max-height: 70%; /* 添加最大高度，确保内容可以滚动 */
+    text-align: justify; /* 设置文本两边对齐 */
+}
+
+/* 关闭按钮样式 */
+#close-btn {
+    float: right;
+    cursor: pointer;
+}
+
+/* 单独一行文字的样式 */
+.right-align {
+    text-align: right;
+}
+/* 虚线分割线的样式 */
+.divider {
+    border-top: 1px dashed black; /* 设置分割线为黑色虚线 */
+    margin: 10px 0;
+}
+
+body {
+background: url(./pic/bg_book.jpg);
+font-family: Helvetica, arial, sans-serif;
+font-size: 18px;
+line-height: 1.6;
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: white;
+padding: 30px; 
+}
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
+
+
+body > *:first-child {
+margin-top: 0 !important; }
+body > *:last-child {
+margin-bottom: 0 !important; }
+
+a {
+color: #4183C4; }
+a.absent {
+color: #cc0000; }
+a.anchor {
+display: block;
+padding-center: 30px;
+margin-center: -30px;
+cursor: pointer;
+position: absolute;
+top: 0;
+center: 0;
+bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+margin: 20px 0 10px;
+padding: 0;
+font-weight: bold;
+-webkit-font-smoothing: antialiased;
+cursor: text;
+position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+text-decoration: none; }
+
+h1 tt, h1 code {
+font-size: inherit; }
+
+h2 tt, h2 code {
+font-size: inherit; }
+
+h3 tt, h3 code {
+font-size: inherit; }
+
+h4 tt, h4 code {
+font-size: inherit; }
+
+h5 tt, h5 code {
+font-size: inherit; }
+
+h6 tt, h6 code {
+font-size: inherit; }
+
+h1 {
+font-size: 24px;
+color: black; }
+
+h2 {
+font-size: 20px;
+border-bottom: 1px solid #cccccc;
+color: black; }
+
+h3 {
+font-size: 18px; }
+
+h4 {
+font-size: 16px; }
+
+h5 {
+font-size: 14px; }
+
+h6 {
+color: #777777;
+font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+font-size: 18px; }
+
+hr {
+background: transparent;
+border: 0 none;
+border-top: 1px solid #cccccc;
+height: 4px;
+padding: 0;
+margin: 10px 0;
+}
+
+body > h2:first-child {
+margin-top: 0;
+padding-top: 0; }
+body > h1:first-child {
+margin-top: 0;
+padding-top: 0; }
+body > h1:first-child + h2 {
+margin-top: 0;
+padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+margin-top: 0;
+padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+margin-top: 0;
+padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+margin: 10px 0;
+margin-top: 0; }
+
+li p.first {
+display: inline-block; }
+li {
+margin: 0; }
+ul, ol {
+padding-center: 30px; }
+
+ul :first-child, ol :first-child {
+margin-top: 0; }
+
+dl {
+padding: 0; }
+dl dt {
+font-size: 14px;
+font-weight: bold;
+font-style: italic;
+padding: 0;
+margin: 15px 0 5px; }
+dl dt:first-child {
+padding: 0; }
+dl dt > :first-child {
+margin-top: 0; }
+dl dt > :last-child {
+margin-bottom: 0; }
+dl dd {
+margin: 0 0 15px;
+padding: 0 15px; }
+dl dd > :first-child {
+margin-top: 0; }
+dl dd > :last-child {
+margin-bottom: 0; }
+
+blockquote {
+border-center: 4px solid #dddddd;
+padding: 0 15px;
+color: #777777; }
+blockquote > :first-child {
+margin-top: 0; }
+blockquote > :last-child {
+margin-bottom: 0; }
+
+table {
+padding: 0;border-collapse: collapse; }
+table tr {
+border-top: 1px solid #cccccc;
+background-color: white;
+margin: 0;
+padding: 0; }
+table tr:nth-child(2n) {
+background-color: #f8f8f8; }
+table tr th {
+font-weight: bold;
+border: 1px solid #cccccc;
+margin: 0;
+padding: 6px 13px; }
+table tr td {
+border: 1px solid #cccccc;
+margin: 0;
+padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+margin-bottom: 0; }
+
+img {
+max-width: 100%;
+height: auto; }
+
+span.frame {
+display: block;
+overflow: hidden; }
+span.frame > span {
+border: 1px solid #dddddd;
+display: block;
+float: center;
+overflow: hidden;
+margin: 13px 0 0;
+padding: 7px;
+width: auto; }
+span.frame span img {
+display: block;
+float: center; }
+span.frame span span {
+clear: both;
+color: #333333;
+display: block;
+padding: 5px 0 0; }
+span.align-center {
+display: block;
+overflow: hidden;
+clear: both; }
+span.align-center > span {
+display: block;
+overflow: hidden;
+margin: 13px auto 0;
+text-align: center; }
+span.align-center span img {
+margin: 0 auto;
+text-align: center; }
+span.align-right {
+display: block;
+overflow: hidden;
+clear: both; }
+span.align-right > span {
+display: block;
+overflow: hidden;
+margin: 13px 0 0;
+text-align: right; }
+span.align-right span img {
+margin: 0;
+text-align: right; }
+span.float-center {
+display: block;
+margin-right: 13px;
+overflow: hidden;
+float: center; }
+span.float-center span {
+margin: 13px 0 0; }
+span.float-right {
+display: block;
+margin-center: 13px;
+overflow: hidden;
+float: right; }
+span.float-right > span {
+display: block;
+overflow: hidden;
+margin: 13px auto 0;
+text-align: right; }
+
+code, tt {
+margin: 0 2px;
+padding: 0 5px;
+white-space: nowrap;
+border: 1px solid #eaeaea;
+background-color: #f8f8f8;
+border-radius: 3px; }
+
+pre code {
+margin: 0;
+padding: 0;
+white-space: pre;
+border: none;
+background: transparent; }
+
+.highlight pre {
+background-color: #f8f8f8;
+border: 1px solid #cccccc;
+font-size: 18px;
+line-height: 19px;
+overflow: auto;
+padding: 6px 10px;
+border-radius: 3px; }
+
+pre {
+background-color: #f8f8f8;
+border: 1px solid #cccccc;
+font-size: 18px;
+line-height: 19px;
+overflow: auto;
+padding: 6px 10px;
+border-radius: 3px; }
+pre code, pre tt {
+background-color: transparent;
+border: none; }
+
+sup {
+font-size: 0.83em;
+vertical-align: super;
+line-height: 0;
+}
+
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* 移动终端适配 */
+@media only screen and (max-width: 600px) {
+body {
+font-size: 18px;
+margin:0 auto;
+}
+
+h1 {
+font-size: 20px;
+}
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+body {
+padding: 2cm; 
+}
+}
+</style>
+
+
+</head>
+
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
+
+<center><img style="max-width:100%;overflow:hidden;" src="../document/images/definology.png"></center>
+
+<h1><center><font color=black>《定义学：探索概念的根源和意义》<p>Definology：Exploring the Roots and Meanings of Concepts</font></center></h1>
+<h1 id="toc_0"><center><a href="./Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(LanguageAll).html"><font color=blue>目录<p>Table of Contents</font></center></h1>
+
+<p><center><a href="./md/zh_en/001_写作初衷Original Intention of Writing.html"><font color=blue>写作初衷</font></a> </center> <p>
+<center><a href="./md/zh_en/001_写作初衷Original Intention of Writing.html"><font color=blue>Original Intention of Writing </font></a></center> <p>
+<center><a href="./md/zh_en/002_书籍简介Book Introduction.html"><font color=blue>书籍简介</font></a></center> <p>
+<center><a href="./md/zh_en/002_书籍简介Book Introduction.html"><font color=blue>Book Introduction</font></a> </center><p>
+<center><a href="./md/zh_en/003_鸣谢Acknowledgement.html"><font color=blue>鸣谢</font></a></center> <p>
+<center><a href="./md/zh_en/003_鸣谢Acknowledgement.html"><font color=blue>Acknowledgement</font></a> </center><p></p>
+
+<h3 id="toc_1"><center>定义的开天<p>Beginning Of Deﬁnitions</center></h3>
+
+<p><center><a href="./md/zh_en/101_第1章 定义的概念Chapter 1- Deﬁned Concepts.html"><font color=blue>第1章 定义的概念 </font></a></center><p>
+<center><a href="./md/zh_en/101_第1章 定义的概念Chapter 1- Deﬁned Concepts.html"><font color=blue>Chapter 1: Deﬁned Concepts </font></a></center><p>
+<center><a href="./md/zh_en/102_第2章 定义的基础Chapter 2- The Foundation of Deﬁnitions.html"><font color=blue>第2章 定义的基础 </font></a></center><p>
+<center><a href="./md/zh_en/102_第2章 定义的基础Chapter 2- The Foundation of Deﬁnitions.html"><font color=blue>Chapter 2: The Foundation of Deﬁnitions </font></a></center><p>
+<center><a href="./md/zh_en/103_第3章 定义者Chapter 3- Deﬁners.html"><font color=blue>第3章 定义者 </font></a></center><p>
+<center><a href="./md/zh_en/103_第3章 定义者Chapter 3- Deﬁners.html"><font color=blue>Chapter 3: Deﬁners </font></a></center><p>
+<center><a href="./md/zh_en/104_第4章 定义权Chapter 4- Deﬁnition Rights.html"><font color=blue>第4章 定义权 </font></a></center><p>
+<center><a href="./md/zh_en/104_第4章 定义权Chapter 4- Deﬁnition Rights.html"><font color=blue>Chapter 4: Deﬁnition Rights </font></a></center><p>
+<center><a href="./md/zh_en/105_第5章 定义的对象Chapter 5- Deﬁned Objects.html"><font color=blue>第5章 定义的对象 </font></a></center><p>
+<center><a href="./md/zh_en/105_第5章 定义的对象Chapter 5- Deﬁned Objects.html"><font color=blue>Chapter 5: Deﬁned Objects</font></a></center><p>
+<center><a href="./md/zh_en/106_第6章 定义的作用范围Chapter 6- Scope of Deﬁnitions.html"><font color=blue>第6章 定义的作用范围</font></a></center><p>
+<center><a href="./md/zh_en/106_第6章 定义的作用范围Chapter 6- Scope of Deﬁnitions.html"><font color=blue>Chapter 6: Scope of Deﬁnitions</font></a></center><p></p>
+
+<h3 id="toc_2"><center>定义的延伸<p>Extension Of Deﬁnitions</center></h3>
+
+<p><center><a href="./md/zh_en/207_第7章 定义的继承Chapter 7- Inheritance Deﬁnitions.html"><font color=blue>第7章 定义的继承 </font></a></center><p>
+<center><a href="./md/zh_en/207_第7章 定义的继承Chapter 7- Inheritance Deﬁnitions.html"><font color=blue>Chapter 7: Inheritance Deﬁnitions </font></a></center><p>
+<center><a href="./md/zh_en/208_第8章 定义的层次性Chapter 8- Hierarchical Deﬁnitions.html"><font color=blue>第8章 定义的层次性</font></a></center><p>
+<center><a href="./md/zh_en/208_第8章 定义的层次性Chapter 8- Hierarchical Deﬁnitions.html"><font color=blue>Chapter 8: Hierarchical Deﬁnitions </font></a></center><p>
+<center><a href="./md/zh_en/209_第9章 定义的强化性Chapter 9- Deﬁnition of Reinforcement.html"><font color=blue>第9章 定义的强化性</font></a></center><p>
+<center><a href="./md/zh_en/209_第9章 定义的强化性Chapter 9- Deﬁnition of Reinforcement.html"><font color=blue>Chapter 9: Deﬁnition of Reinforcement </font></a></center><p>
+<center><a href="./md/zh_en/210_第10章 定义的有效性Chapter 10- Validity of Deﬁnitions.html"><font color=blue>第10章 定义的有效性</font></a></center><p>
+<center><a href="./md/zh_en/210_第10章 定义的有效性Chapter 10- Validity of Deﬁnitions.html"><font color=blue>Chapter 10: Validity of Deﬁnitions</font></a></center><p>
+<center><a href="./md/zh_en/211_第11章 定义的时效性Chapter 11- Timeliness of Deﬁnitions.html"><font color=blue>第11章 定义的时效性 </font></a></center><p>
+<center><a href="./md/zh_en/211_第11章 定义的时效性Chapter 11- Timeliness of Deﬁnitions.html"><font color=blue>Chapter 11: Timeliness of Deﬁnitions </font></a></center><p></p>
+
+<h3 id="toc_3"><center>定义的涅槃<p>Nirvana Of Deﬁnition</center></h3>
+
+<p><center><a href="./md/zh_en/312_第12章 定义之创新根源Chapter 12- Deﬁnition is the Roots of Innovation.html"><font color=blue>第12章 定义之创新根源 </font></a></center><p>
+<center><a href="./md/zh_en/312_第12章 定义之创新根源Chapter 12- Deﬁnition is the Roots of Innovation.html"><font color=blue>Chapter 12: Deﬁnition is the Roots of Innovation</font></a></center><p>
+<center><a href="./md/zh_en/313_第13章 定义之故步自封Chapter 13- Deﬁnition Leads to Solids Steps.html"><font color=blue>第13章 定义之故步自封 </font></a></center><p>
+<center><a href="./md/zh_en/313_第13章 定义之故步自封Chapter 13- Deﬁnition Leads to Solids Steps.html"><font color=blue>Chapter 13: Deﬁnition Leads to Solids Steps</font></a></center><p>
+<center><a href="./md/zh_en/314_第14章 定义之矛盾冲突Chapter 14- Deﬁnitions of Contradictions and Conflicts.html"><font color=blue>第14章 定义之矛盾冲突 </font></a></center><p>
+<center><a href="./md/zh_en/314_第14章 定义之矛盾冲突Chapter 14- Deﬁnitions of Contradictions and Conflicts.html"><font color=blue>Chapter 14: Deﬁnitions of Contradictions and Conflicts </font></a></center><p>
+<center><a href="./md/zh_en/315_第15章 打破旧定义，建立新定义Chapter 15- Breaking Old Deﬁnitions, Establishing New Ones.html"><font color=blue>第15章 打破旧定义，建立新定义</font></a></center><p>
+<center><a href="./md/zh_en/315_第15章 打破旧定义，建立新定义Chapter 15- Breaking Old Deﬁnitions, Establishing New Ones.html"><font color=blue>Chapter 15: Breaking Old Deﬁnitions, Establishing New One</font></a></center><p>
+<center><a href="./md/zh_en/401_结语Final Words.html"><font color=blue>结语</font></a></center><p>
+<center><a href="./md/zh_en/401_结语Final Words.html"><font color=blue>Final Words </font></a></center><p>
+<center><a href="./md/zh_en/402_定义之歌Song of Deﬁnition.html"><font color=blue>定义之歌 </font></a></center><p>
+<center><a href="./md/zh_en/402_定义之歌Song of Deﬁnition.html"><font color=blue>Song of Deﬁnition </font></a></center><p>
+<center><a href="./md/zh_en/403_附录 书籍的新定义Appendix- A New Deﬁnition of Books.html"><font color=blue>附录 书籍的新定义</font></a></center><p>
+<center><a href="./md/zh_en/403_附录 书籍的新定义Appendix- A New Deﬁnition of Books.html"><font color=blue>Appendix: A New Deﬁnition of Books </font></a></center><p>
+<center><a href="./md/zh_en/404_书籍索引Book Index.html"><font color=blue>书籍索引 </font></a></center><p>
+<center><a href="./md/zh_en/404_书籍索引Book Index.html"><font color=blue>Book Index </font></a></center><p></p>
+
+
+<!-- 弹窗 -->
+<div id="popup">
+<div id="popup-content">
+  
+<h1><strong><center>自序<p>Author's Preface</center></strong></h1>
+  
+<p>&emsp;&emsp;&emsp;&emsp;在此之前，《定义学：探索概念的根源和意义》一书已经完成通篇的写作。限于与之相关的一些思考还没有形成闭环，因此，该书的出版计划被停止了。至于，哪些思考呢？思考的结论是什么？将在这里提出来，并给出决定该书出版的理由。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Previously, the book ‘Definology: Exploring the Roots and Meanings of Concepts’ had been completed in its entirety. Limited to a number of reflections related to it that had not yet closed the loop, the book's publication program was halted. As for, which reflections? What are the conclusions of the reflections? They will be presented here, and the reasons for the decision to publish the book will be given.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;创新，一个恒古不变的话题。创新通常是建立在现有概念、知识和技术的基础上进行的，其可以涉及改进、扩展或重新组合已有的元素。这种渐进式的创新更容易被市场和社会接受，因为它们基于已经存在的理解和经验。反之，从0到1的原创性创新可能会更具挑战性，因为它们可能涉及到破除传统观念、重新思考问题，或者创造全新的解决方案。从0到1的原创性创新通常需要更多的风险和资源，在成功之前，这些原生的概念往往很难被推广和接受。但如果成功，它们可以彻底改变行业和社会。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Innovation, a constant topic. Innovation usually builds on existing concepts, knowledge and technologies and can involve improving, expanding or recombining already existing elements. Such incremental innovations are more likely to be accepted by the market and society because they are based on understanding and experience that already exists. Conversely, original innovations from 0 to 1 can be more challenging because they may involve breaking down traditional ideas, rethinking problems, or creating entirely new solutions. Original innovations from 0 to 1 usually require more risk and resources, and until they are successful, these original concepts are often difficult to generalize and accept. But if successful, they can revolutionize industries and society.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;为什么要强调概念和大脑活动的联系呢？因为定义的基础着实重要。<strong>概念的底层不是大脑活动，而是符号和符号系统。</strong>符号可以是语言中的词汇、图形、数字或其他形式的符号，而这些符号用来代表最原初的概念和思想。大脑活动大多数时候是局限于符号和符号系统的，其结果则是产生一系列的概念。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Why emphasize the connection between concepts and brain activity? Because the foundation of the definition is really important. <strong>The underpinnings of concepts are not brain activity, but symbols and symbol systems. </strong>Symbols can be words in language, graphics, numbers, or other forms of symbols, and these symbols are used to represent the most original concepts and ideas. Brain activity is most of the time limited to symbols and symbol systems, and the result is a series of concepts.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;当我们思考或使用语言时，依据符号系统的构造规则，我们将这些符号组合在一起，以创建更为复杂的概念和表达。而符号系统是文化和社会环境中的产物，其允许我们共享和传递知识、思想和理念。在这个过程中，大脑活动起着关键的作用，它们负责处理符号、将它们与特定的概念关联起来，并支持我们的思维和语言能力。<strong>打个比方，大脑活动是农夫，符号和符号系统是耕地，创建的概念是生长的农作物。</strong>因此，概念的底层是符号和符号系统，而大脑活动则是在其基础上进行的，用来处理和操作概念。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;When we think or use language, we combine these symbols to create more complex concepts and expressions according to the rules of construction of the symbol system. Symbolic systems are products of cultural and social environments that allow us to share and transmit knowledge, ideas and concepts. Brain activity plays a key role in this process, as they are responsible for processing symbols, associating them with specific concepts, and supporting our thinking and language abilities.<strong>To use an analogy, brain activity is the farmer, symbols and symbol systems are the plowed fields, and the created concepts are the growing crops.</strong> Thus, at the bottom of the concepts are the symbols and sign systems on which the brain activity is based to process and manipulate the concepts.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;相信到这里，很多读者已经意识到了什么。没错，现在你阅读的文字，以及对应每个文字的发音就是伴随你一生的符号和符号系统。不同的读者可能来自不同的国家，为此，有的读者使用的是中文汉字符号和符号系统；有的读者使用的是英语字母符号和符号系统；有的读者使用的是拉丁语字符符号和符号系统……<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;I'm sure by this point, many readers have realized something. That's right, the words you are reading right now, and the pronunciation that corresponds to each of them, are the signs and symbol systems that have been with you all your life. Different readers may come from different countries, and for this reason, some readers use Chinese character symbols and sign systems; some readers use English letter symbols and sign systems; and some readers use Latin character symbols and sign systems ......<p align="justify">
+  
+<p>&emsp;&emsp;&emsp;&emsp;<strong>是不是不同的符号和符号系统就代表了其不同的先进性？答案是肯定的。</strong><p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Is it true that different symbols and notation systems represent their different levels of sophistication? The answer is yes.</strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;构建一套先进的符号和符号系统是一个复杂而多层次的过程，通常需要深入的研究、设计和开发。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Building an advanced symbol and notation system is a complex and multi-layered process that usually requires intensive research, design and development.<p align="justify">
+
+<!--
+<center><img src="./pic/符号和符号系统设计流程_自序.png" alt="符号和符号系统设计流程"></center> 
+-->
+<center><img src="./pic/SymbolandSymbolSystemDesignProcess_SelfPreface.png" alt="Symbol and Symbol System Design Process"></center>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第一，是明确目标和用途。</strong>确定你希望这套符号系统用于什么目的。是为了语言处理、知识表示、智能推理、机器学习等？确定你希望这套符号系统能够处理的领域和问题类型。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>The first, is to define the goal and purpose.</strong> Determine what purpose you want this symbolic system to be used for. Is it for language processing, knowledge representation, intelligent reasoning, machine learning, etc.? Determine the domains and types of problems you want this notation system to be able to handle.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第二，是研究现有工作。</strong>研究领域内的现有研究和技术，了解已经存在的符号系统和相关理论。查看成功的案例，以了解它们是如何构建和使用符号系统的。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>The second, is to study existing work.</strong> Study existing research and techniques in the field to understand the symbolic systems and related theories that already exist. Look at successful examples to understand how they have built and used symbol systems.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第三，是设计符号。</strong>确定你的符号集，这些符号将用来表示不同的概念和信息。定义符号之间的关系和规则，包括语法和语义规则。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>The third, is to design symbols.</strong> Identify your set of symbols that will be used to represent different concepts and information. Define the relationships and rules between symbols, including syntactic and semantic rules.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第四，是建立知识库。</strong>构建一个知识库，其中包含你希望系统能够处理的各种信息和概念。确保知识库的结构和组织能够支持符号系统的目标和任务。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>The fourth, is to build a knowledge base.</strong> Build a knowledge base that contains the kinds of information and concepts you want the system to be able to handle. Make sure that the structure and organization of the knowledge base supports the goals and tasks of the symbol system.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第五，是开发符号处理工具。</strong>包括开发符号处理工具和算法，用于对符号进行操作、推理和推断。这可能涉及到自然语言处理、逻辑推理、模式匹配等技术。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>The fifth, is to develop symbol processing tools.</strong> This includes the development of symbol processing tools and algorithms for manipulating, reasoning, and inferring about symbols. This may involve techniques such as natural language processing, logical reasoning, pattern matching, etc.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第六，是测试和评估。</strong>对你的符号系统进行测试，确保它在各种情境下都能够正常运作。进行评估，以确定系统在特定任务上的性能如何，然后进行改进。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Sixth, is testing and evaluation.</strong> Test your symbolic system to ensure that it works properly in a variety of contexts. Conduct evaluations to determine how well the system performs on specific tasks and then make improvements.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第七，是系统持续改进。</strong>符号系统是一个不断发展的领域，因此，要保持更新和改进你的系统。反馈和用户经验可以帮助你改善系统的性能和功能。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Seventh, is continuous system improvement.</strong> Symbolic systems are a constantly evolving field, so keep updating and improving your system. Feedback and user experience can help you improve the performance and functionality of your system.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第八，是整合机器学习和深度学习。</strong>考虑将符号系统与机器学习和深度学习方法相结合，以提高系统的适应性和智能性。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Eighth, is the integration of machine learning and deep learning.</strong> Consider integrating symbolic systems with machine learning and deep learning methods to improve the adaptability and intelligence of your system.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第九，是应用领域适配。</strong>确保你的符号系统适应你希望应用的具体领域和问题，可能需要定制化的开发和调整。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Ninth, is application domain adaptation.</strong> Ensure that your symbolic system is adapted to the specific domain and problem you wish to apply it to, which may require customized development and adaptation.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;需要注意的是，构建先进的符号系统是一个复杂的工程，需要跨学科的知识和团队合作。还需要长期的努力和不断的研究和开发。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;It is important to note that building advanced symbolic systems is a complex project that requires interdisciplinary knowledge and teamwork. It also requires long-term efforts and continuous research and development.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>为了让读者加以理解符号和符号系统，下面是一个简单且具备足够的表达能力的示例：</strong><p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>In order for the reader to understand symbols and symbol systems, the following is a simple and sufficiently expressive example:</strong><p align="justify">
+
+<strong>符号：<p>Symbols:</strong>
+<p>&emsp;&emsp;&emsp;&emsp;字母和数字：使用26个拉丁字母和阿拉伯数字0-9，它们是基本的符号元素。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Letters and numbers: use the 26 Latin letters and Arabic numerals 0-9, which are the basic symbol elements.<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;基本符号：定义一组基本符号，如+、-、*、/、=，用于表示基本的数学和逻辑操作。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Basic symbols: a set of basic symbols such as +, -, *, /, = are defined to represent basic mathematical and logical operations.<p align="justify">
+
+<strong>注释：<p>Annotation:</strong>
+<p>&emsp;&emsp;&emsp;&emsp;字母和数字：字母用于表示文本信息，数字用于表示数量和计数。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Letters and Numbers : Letters are used to represent textual information and numbers are used to represent quantities and counts.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;基本符号：<p>Basic symbols:<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;+ ：加法操作，表示将两个数相加。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;+ : Addition operation, indicating the addition of two numbers.<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;- ：减法操作，表示从一个数中减去另一个数。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;- : Subtraction: Subtracts one number from another.<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;* ：乘法操作，表示两个数的乘积。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;* : Multiplication, the product of two numbers.<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;/ ：除法操作，表示一个数除以另一个数。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;/ : The division operation, which means dividing one number by another.<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;= ：等于号，表示两个表达式或值相等。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;= : The equal sign, which indicates that two expressions or values are equal.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;这是一个非常基础的符号系统示例，仅包括数学和逻辑运算的一小部分。一个实际的符号系统可能需要更多的符号来表示更复杂的概念和信息。该系统的优势在于它的简洁性，但也有明显的局限性。<strong>要使该系统更为先进，可以考虑以下改进：</strong><p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;This is a very basic example of a symbol system that includes only a small portion of mathematical and logical operations. An actual symbolic system may require more symbols to represent more complex concepts and information. The strength of this system lies in its simplicity, but it also has obvious limitations. <strong>To make the system more advanced, the following improvements can be considered:</strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>扩展符号集：</strong>添加更多的符号，以支持表示不同类型的信息，例如文字、图形、音频等。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Extend the symbol set:</strong> add more symbols to support the representation of different types of information, e.g., text, graphics, audio, etc.<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>引入规则：</strong>定义符号之间的规则，以支持更复杂的计算和推理。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Introduce rules:</strong> define rules between symbols to support more complex computations and reasoning.<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>引入变量和函数：</strong>允许引入变量和函数，以支持符号系统的抽象性和通用性。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Introducing Variables and Functions:</strong> Allow variables and functions to be introduced to support abstraction and generalization of the symbol system.<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>引入符号的上下文：</strong>考虑符号的上下文，以便更好地理解和解释符号的含义。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Introducing the context of symbols:</strong> Consider the context of symbols for better understanding and interpretation of the meaning of symbols.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;符号和符号系统的复杂度和先进程度将取决于特定的用途和需求。建立一套符号系统需要深思熟虑，以确保其能够满足特定任务和目标。这也是为什么要花如此大的篇幅在强调符号和符号系统的初衷。<strong>一套先进的符号和符号系统的标志之一是该符号和符号系统的持续改进。</strong><p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;The complexity and sophistication of symbols and symbol systems will depend on the particular use and needs. Creating a system of symbols requires thoughtful consideration to ensure that it will meet specific tasks and goals. This is why so much space is spent on emphasizing symbols and symbol systems in the first place. <strong>One of the hallmarks of a state-of-the-art symbol and notation system is the continuous improvement of that symbol and notation system.</strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;符号和符号系统的形成过程是复杂的，通常经历了多个阶段和演化过程。以下是<strong>符号和符号系统形成的一般过程：</strong><p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;The process of symbol and notation system formation is complex and usually goes through multiple stages and evolutionary processes. The following is <strong>the general process of the formation of symbols and symbol systems:</strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>感知和经验：</strong>符号的形成通常从感知和经验开始。人类和许多动物通过感觉器官来感知外部世界，从中获得信息。这些感知的信息随后会被大脑处理和编码。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Perception and experience:</strong> the formation of symbols usually begins with perception and experience. Humans and many animals perceive the external world through their sense organs and obtain information from it. This perceived information is then processed and encoded by the brain.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>抽象和一般化：</strong>在感知和经验的基础上，大脑会进行抽象和一般化的过程。这意味着从具体的感知中提取出通用的特征或模式。例如，通过观察多种不同的椅子，我们可以形成一个概念，表示"椅子"，它包括了各种不同类型的椅子。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Abstraction and generalization:</strong> On the basis of perception and experience, the brain engages in a process of abstraction and generalization. This means extracting generalized features or patterns from specific perceptions. For example, by observing many different chairs, we can form a concept that denotes "chair", which encompasses all different types of chairs.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>符号化：</strong>抽象的过程可能导致符号的形成。符号是代表特定概念或对象的标志或表示。在自然语言中，字母和单词就是符号，它们代表特定的声音、词汇或概念。符号也可以是非语言的，如道路标志或数学符号。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Symbolization:</strong> The process of abstraction may lead to the formation of symbols. A symbol is a sign or representation of a particular concept or object. In natural language, letters and words are symbols that represent specific sounds, words, or concepts. Symbols can also be non-verbal, such as road signs or mathematical symbols.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>语言的发展：</strong>符号系统通常与语言的发展密切相关。语言是一种符号系统，其允许人们用符号来表达思想、传达信息和交流。语言符号包括单词、语法规则、句子结构等。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Language development:</strong> Symbol systems are usually closely related to the development of language. Language is a system of symbols which allows people to use symbols to express ideas, convey information and communicate. Linguistic symbols include words, grammatical rules, sentence structures, etc.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>符号的组合：</strong>符号系统的一个关键特征是，能够将符号组合在一起，以表示更复杂的概念和信息。这种组合的方式受到语法和语义规则的约束，这些规则定义了符号如何组合，以及符号组合的含义。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Combination of symbols:</strong> a key feature of symbol systems is the ability to combine symbols together to represent more complex concepts and information. This combination is governed by grammatical and semantic rules that define how symbols are combined and what the combination of symbols means.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>文化和社会影响：</strong>符号系统的形成，还受到文化和社会因素的影响。不同文化和社会，可能会有不同的符号和符号解释。符号系统通常是特定文化和社会共同享有的，在社会互动和传承中，这些符号系统传递给下一代。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Cultural and social influences:</strong> the formation of symbol systems is also influenced by cultural and social factors. Different cultures and societies may have different symbols and symbol interpretations. Symbol systems are usually shared by particular cultures and societies, and they are passed on to the next generation in social interaction and inheritance.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>技术和科学的推动：</strong>随着技术和科学的发展，新的符号和符号系统被创造出来，以满足不断变化的需求。例如，计算机科学中的编程语言、数学中的符号表示法等都是技术和科学进步的产物。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Driven by technology and science:</strong> As technology and science evolve, new symbols and symbol systems are created to meet changing needs. For example, programming languages in computer science and symbolic representations in mathematics are products of technological and scientific progress.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;符号和符号系统的形成是一个反映人类认知、社会和文化演进的复杂过程。这些符号和符号系统是我们思考、交流和理解世界的关键工具，经过长期的演化和发展，不断适应着人类需求的变化。在各个领域中，这些符号和符号系统都发挥着重要作用，包括语言、科学、技术和艺术等。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;The formation of signs and symbol systems is a complex process that reflects human cognitive, social and cultural evolution. These signs and symbol systems are key tools for thinking, communicating, and understanding the world, and have evolved and developed over time, adapting to changing human needs. These signs and symbol systems play an important role in a variety of fields, including language, science, technology, and the arts.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;若你已经读到这里了，并且你身边很多的朋友，也正准备翻开第一页，那么写这篇序的目的已完成了一半。剩下的另一半，还请耐心看完或另抽时间再读。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;If you have already read this far, and many of you, who are close to you, are about to turn the first page, half the purpose of writing this preface has been accomplished. For the other half, please bear with me or find another time to read it.<p align="justify">
+<br>
+<!-- 虚线分割线 -->
+<div class="divider"></div>
+<br>
+
+<p>&emsp;&emsp;&emsp;&emsp;没错，不同的符号和符号系统造就了边界与屏障。正如，该书出版之初，可能仅有中文版或英文版，为此，如果你是一个只会本国语言的日本人、韩国人或法国人，那么只能等该书被翻译成相应的日文、韩文或法文后，才有机会探索到该书其中的奥秘。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Yes, different signs and symbol systems create borders and barriers. As such, when the book is published, it may only be available in Chinese or English, and for that reason, if you are a Japanese, Korean or French person who only speaks your own language, you will only have the opportunity to explore the mysteries of the book when it is translated into the appropriate Japanese, Korean or French language.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;未来是幸运的，<strong>人类是可以通过跨越不同的符号和符号系统，来扩大其在不同物种内部的活动，一般通过以下方式实现：</strong><p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Fortunately for the future, <strong>it is possible for humans to expand their activities within different species by crossing over different symbols and symbolic systems, which is generally accomplished in the following ways:</strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>学习和适应：</strong>人类是高度适应性的生物，能够学习并适应不同的环境和文化。这包括学习不同的语言、符号系统和文化规则。通过教育和经验，人们能够掌握不同的符号系统，从而参与不同物种内部的活动。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Learning and adapting:</strong> Humans are highly adaptable creatures, capable of learning and adapting to different environments and cultures. This includes learning different languages, symbol systems and cultural rules. Through education and experience, people are able to master different symbol systems and thus participate in activities within different species.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>翻译和通译：</strong>翻译和通译是从一套符号系统转化成另一套符号系统的过程。这可以帮助人们在不同语言和文化之间进行沟通和理解。翻译工具和专业翻译人员可以将文本、口头语言、符号和符号系统从一种语言转化为另一种语言，使信息能够跨越语言障碍。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Translation and Interpretation:</strong> Translation and Interpretation is the process of transforming from one set of symbol systems into another. This helps people to communicate and understand between different languages and cultures. Translation tools and professional translators can transform text, spoken language, symbols and sign systems from one language into another, enabling information to cross language barriers.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>跨学科研究：</strong>许多领域的研究涉及不同的符号和符号系统。例如，在跨学科科学研究中，科学家可能需要理解和整合来自生物学、化学、物理学、计算机科学等不同领域的符号系统。这有助于人们在不同学科之间合作，解决复杂的问题。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Interdisciplinary research:</strong> Many areas of research involve different signs and symbol systems. For example, in interdisciplinary scientific research, scientists may need to understand and integrate symbol systems from different fields such as biology, chemistry, physics, and computer science. This helps people to collaborate across disciplines to solve complex problems.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>多模态交流：</strong>多模态交流涉及多种符号和感官系统的结合。这包括语言、视觉、听觉、触觉等多个感官通道。人们可以通过多种方式表达和理解信息，从而跨越不同符号和符号系统之间的界限。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Multimodal communication:</strong> multimodal communication involves the integration of multiple symbols and sensory systems. This includes multiple sensory channels such as verbal, visual, auditory, and tactile. People can express and understand information in multiple ways, thus crossing the boundaries between different symbols and sign systems.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>技术和工具的帮助：</strong>技术和工具的发展也有助于人们跨越不同符号和符号系统之间的障碍。例如，机器翻译和自然语言处理技术能够自动将文本从一种语言翻译成另一种语言。图像识别和音频处理技术可以将不同的感官信息转化为文本或其他可理解的符号。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Help from technology and tools:</strong> The development of technology and tools also helps people to cross the barriers between different signs and symbol systems. For example, machine translation and natural language processing technologies can automatically translate text from one language to another. Image recognition and audio processing technologies can translate different sensory information into text or other understandable symbols.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>文化交流和互动：</strong>人们通过文化交流和互动来了解和尊重不同的符号系统和文化。这包括参与文化交流活动、学习其他文化的历史和价值观，以及尊重不同文化背景的个体。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>Cultural exchange and interaction:</strong> People learn about and respect different symbol systems and cultures through cultural exchange and interaction. This includes participating in cultural exchange activities, learning about the history and values of other cultures, and respecting individuals from different cultural backgrounds.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;通过这些方式乃至其他更多方式，人类能够跨越不同的符号和符号系统，扩大其在不同物种内部的活动。这种能力使人们能够更广泛地参与社会、文化和科学活动，促进知识和文化的传播与交流。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;In these ways and many more, humans are able to work across different symbols and symbolic systems, expanding their activities within different species. This capacity enables wider participation in social, cultural and scientific activities and facilitates the dissemination and exchange of knowledge and culture.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;为此，在未来的世界里，人类的发展将迈入一个充满创意和进步的新纪元，这是一个发散化的时代，人类渐渐打破各个物种的符号和符号系统的界限，迈向智慧化的物种。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;For this reason, in the world of the future, human development will move into a new era of creativity and progress, an era of diffusion, in which human beings gradually break down the boundaries of symbols and semiotic systems of each species and move towards an intelligent species.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在这个未来，人类已经超越了过去的局限，不再受限于单一的符号系统。开始掌握了多种符号和语言，能够轻松地跨越语言、文化和学科的障碍。这不仅通过强大的机器学习和人工智能技术实现，还得益于人类智慧的提升。人们不再受到符号的束缚，而是能够自由地思考、创造和表达。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;In this future, humans have transcended the limitations of the past and are no longer restricted to a single symbol system. It has begun to master multiple symbols and languages, and is able to cross linguistic, cultural and disciplinary barriers with ease. This is achieved not only through powerful machine learning and artificial intelligence technologies, but also thanks to the increase in human intelligence. People are no longer bound by symbols, but are able to think, create and express themselves freely.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;人类的思维方式已经从线性、单一的符号系统逐渐演化为多维度、跨领域的智慧。他们能够以一种全新的方式理解和处理信息，不再受制于传统的思维模式。这使得跨学科研究和创新变得更加容易，人类能够解决以前被认为不可能解决的复杂问题。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Human thinking has gradually evolved from a linear, single symbol system to a multi-dimensional, cross-domain intelligence. They are able to understand and process information in a completely new way and are no longer constrained by traditional modes of thinking. This has made interdisciplinary research and innovation easier, and humans are able to solve complex problems that were previously considered impossible.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在这个未来的世界里，人类的智慧不再受限于自身的生物学和认知能力。他们可能会与先进的生物科技融合，拥有增强的认知和感知能力。这些增强的能力将使他们更加智慧、创造力更强，有助于推动科学、技术和艺术的前沿。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;In this future world, human intelligence is no longer limited by their own biology and cognitive abilities. They may merge with advanced biotechnology to have enhanced cognitive and perceptual abilities. These enhanced abilities will make them smarter and more creative, helping to push the frontiers of science, technology, and the arts.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;最重要的是，人类将以更开放和合作的方式与其他物种互动。他们将不仅仅是地球上的一种生物，还将成为智慧宇宙中的一员，与其他智慧生物分享知识、文化和艺术。这将为人类带来更广泛的视野和更深刻的理解，使他们能够在宇宙中发挥更大的作用。<strong>这将是一个充满无限可能性的时代，人类将以前所未有的方式探索和塑造未来。</strong><p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Most importantly, humans will interact with other species in a more open and cooperative manner. They will be more than just a creature on Earth, but will be part of an intelligent universe, sharing knowledge, culture and art with other intelligent beings. This will bring a broader perspective and deeper understanding to humanity, enabling them to play a greater role in the universe. <strong>It will be a time of infinite possibilities, where humanity will explore and shape the future in ways never before possible.</strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;以下是几个可以预见的未来假设场景：<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Here are a few hypothetical scenarios of the foreseeable future:<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在未来的世界中，人们可以踏上一次令人叹为观止的森林之旅。他们走入茂密的森林，能够与森林中的生物建立心灵联系。与树木、鸟类、狐狸和其他动物的对话成为可能，这种交流不仅是语言的交换，更是一种情感和智慧的分享。人类学到如何保护和维护这个生态系统，以实现与大自然的和谐共生。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;In a future world, people can embark on a breathtaking journey through the forest. They walk into a dense forest and are able to establish a psychic connection with the creatures of the forest. Conversations with trees, birds, foxes, and other animals become possible, and this exchange is not just an exchange of words, but a sharing of emotions and wisdom. Humans learn how to protect and maintain this ecosystem in order to live in harmony with nature.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;人们不仅能够与海洋生物互动，还能够深入海底，探索深海中的奇幻景观。他们穿着特殊的海底服装，与鲸鱼、章鱼和珊瑚礁共舞。通过与海洋生物的情感交流，人们可以理解海洋的需求，努力保护这个宝贵的自然资源。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;People were not only able to interact with marine life, but also to go deep under the sea and explore the fantastic landscapes in the deep sea. They wore special underwater costumes and danced with whales, octopuses and coral reefs. By connecting emotionally with marine life, people can understand the needs of the ocean and work to protect this precious natural resource.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;人类已经掌握了飞翔的技能，他们可以随心所欲地在天空中飞翔。与鸟儿的交流变得更加深入，这种交流不仅包括声音和语言，还包括飞行的姿势和舞蹈。这种与鸟类的合作不仅让人类享受自由翱翔的乐趣，还帮助他们更好地保护生态平衡。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Humans have mastered the skill of flying, and they can take to the skies as they please. Communication with birds has become deeper, and this communication includes not only sounds and words, but also flying postures and dances. This cooperation with birds not only allows human beings to enjoy the fun of soaring freely, but also helps them to better protect the ecological balance.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在这个未来的世界里，不同物种之间的合作不仅限于情感交流，还包括智慧的共创。人类与其他生物一起解决挑战，推动科学和技术的进步。例如，人类与海洋生物合作研究海洋污染，与鸟类一起监测气候变化。这种跨物种的协作加速了解决全球问题的能力。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;In this future world, cooperation between different species is not only limited to emotional communication, but also includes the co-creation of wisdom. Humans work with other creatures to solve challenges and advance science and technology. For example, humans collaborate with marine life to study ocean pollution and with birds to monitor climate change. This cross-species collaboration accelerates the ability to solve global problems. <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在这个充满奇迹和和谐的未来世界中，人类与自然界实现了前所未有的联系和互动。这种互动不仅改变了人类的生活方式，还提高了他们对大自然的尊重和保护意识，共同建设一个更加可持续、和谐的地球。这是一个充满希望、智慧和美丽的未来景象。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;In this future world of wonder and harmony, humans and the natural world realize an unprecedented level of connection and interaction. This interaction not only changes the way humans live, but also raises their awareness of respect for and protection of nature, working together to build a more sustainable and harmonious planet. It is a vision of the future full of hope, wisdom and beauty.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;若是你已经读到这里了，剩下的另一半目的基本完成。相信，你开始意识到，这将是一本改变世界的书。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;If you have read this far, the other half of the remaining purpose is basically accomplished. Believe it or not, you are beginning to realize that this is going to be a world-changing book.<p align="justify">
+
+<br>
+<!-- 虚线分割线 -->
+<div class="divider"></div>
+<br>
+
+<p>&emsp;&emsp;&emsp;&emsp;改变世界，我一个人做不到，你一个人也做不到。但这本书《定义学：探索概念的根源和意义》可以做得到，而出版该书仅仅是一个开始。本书以分享对概念的独特见解与思考，为读者提供一种全新的思维方式或理解概念的方式。通过本书出版，想寻找书中的观点和理念可能会吸引到的一些认同者，尤其是重要问题上有共鸣的认同者，以建立有意义的社交，进而分享相似的价值观和兴趣等。希望本书的出版，可以将其中的有益思想和见解传递给后代，留下一种持久的遗产。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;Changing the world is something I can't do alone, and you can't do it alone. But this book, ‘Definology: Exploring the Roots and Meanings of Concepts’, can do it, and publishing it is just the beginning. This book offers readers a new way of thinking or understanding concepts by sharing unique insights and thoughts about them. Through the publication of this book, the idea is to find some identifiers that the ideas and concepts in the book might attract, especially those who resonate on important issues, in order to build meaningful socialization and in turn share similar values, interests, etc. It is hoped that the publication of this book will leave a lasting legacy by passing on the useful ideas and insights contained therein to future generations.<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;更是为了以后，留下一个解释，留下足够的影响。生死之哲，阴阳之哲，零壹之哲，有无之哲，贫富之哲，真假之哲，好坏之哲，善恶之哲，利害之哲，大小之哲，快慢之哲，远近之哲，里外之哲，高低之哲，亮暗之哲，人畜之哲，敌友之哲，亲疏之哲，爱恨之哲，冷热之哲，宽窄之哲，粗细之哲，深浅之哲，薄厚之哲… …乃始于差分，概念之本源。<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;More so, for the future, leaving an explanation and leaving enough impact. The philosophy of life and death, the philosophy of Yin and Yang, the philosophy of Zero and One, the philosophy of existence and non-existence, the philosophy of the rich and the poor, the philosophy of true and false, the philosophy of good and evil, the philosophy of right and wrong，the philosophy of what is good and what is bad，the philosophy of the size，the philosophy of speed and slowness, the philosophy of the distance, the philosophy inside and outside, the philosophy of high and low, the philosophy of brightness, the philosophy of humans and animals, the philosophy of friends and enemies, the philosophy of close and distant relationships, the philosophy of love and hate, the philosophy of heat and cold, the philosophy of width and narrowness,the philosophy of coarse and fine,the philosophy of profound and shallow,the philosophy of meanness and generosity... ... which is the beginning of the difference, the very origin of the concept.<p align="justify">
+
+<br>
+<br>
+
+<div class="right-align"> 2023年10月7日&emsp;&emsp;&emsp;&emsp;</div>
+<div class="right-align"> October 7, 2023&emsp;&emsp;&emsp;&emsp;</div>
+
+<center><button onclick="closePopup()">已阅读完自序部分！</button></center>
+<center><button onclick="closePopup()">Have Read The Preface!</button></center>
+</div>
+</div>
+</body>
+
+<br><br><br><br><br><br>
+<center>
+<footer>
+  <div class="footer-content">
+    <p>Copyright&copy; Since 2023 by RobinShare.</p><p>All rights reserved.<a href="../声明statement.html">声明 Statement</a><p>
+  </div>
+</footer>
+</center>
+
+</html>
+
+

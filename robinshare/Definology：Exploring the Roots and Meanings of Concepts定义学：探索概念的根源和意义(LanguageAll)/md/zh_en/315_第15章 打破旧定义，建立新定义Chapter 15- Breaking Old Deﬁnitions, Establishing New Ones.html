@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DSVNNFSCR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DSVNNFSCR');
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>315_第15章 打破旧定义，建立新定义Chapter 15- Breaking Old Deﬁnitions, Establishing New Ones</title>
+
+
+<style type="text/css">
+/* 设置按钮的样式，这里使用示意图标表示卡通样式 */
+#playPauseButton {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 204, 0, 0.1); /* 卡通样式的颜色 */
+    border: none;
+    border-radius: 50%; /* 将按钮设置成圆形 */
+    background-image: url(../../pic/play_icon.png); /* 播放时的图标 */
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* 暂停状态的样式 */
+#playPauseButton.paused {
+    background-image: url(../../pic/pause_icon.png); /* 暂停时的图标 */
+}
+
+body {
+  // background: url(../pic/bg_donate.jpg);
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
+
+.footer-content {
+     position: fixed;
+     color: currentColor;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     padding: 20px;
+     text-align: center;
+    }
+    
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
+
+<!-- 使用 <audio> 元素插入 MP3 音频 -->
+<audio id="audioPlayer" controls autoplay>
+    <source src="./audio/第15章 打破旧定义，建立新定义/第15章 打破旧定义，建立新定义.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- 添加一个按钮，用于控制音频的播放和暂停 -->
+<button id="playPauseButton"></button>
+
+<script>
+    // JavaScript代码，用于实现按钮的随机移动和音频控制
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playPauseButton = document.getElementById('playPauseButton');
+
+    // 按钮点击事件，控制音频的播放和暂停
+    playPauseButton.addEventListener('click', function () {
+        if (audioPlayer.paused) {
+             audioPlayer.play();
+             playPauseButton.classList.remove('paused'); // 移除暂停样式
+        } else {
+            audioPlayer.pause();
+            playPauseButton.classList.add('paused'); // 添加暂停样式
+        }
+    });
+</script>
+
+<!-- 
+   <script>
+    // 获取访问者的地理位置信息
+    function getVisitorLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+      }
+    }
+
+    // 成功获取地理位置信息的回调函数
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // 根据经纬度判断是否在中国大陆范围内
+      var isInChina = isLocationInChina(latitude, longitude);
+
+      // 根据地理位置设置不同的背景图片
+      setBackgroundByLocation(isInChina);
+    }
+
+    // 获取地理位置信息失败的回调函数
+    function error(error) {
+      console.error('Failed to retrieve visitor location.');
+    }
+
+    // 根据经纬度判断是否在中国大陆范围内
+    function isLocationInChina(latitude, longitude) {
+      // 判断逻辑：根据中国大陆范围的经纬度边界判断
+      var chinaLatitudeMin = 18.15284;
+      var chinaLatitudeMax = 53.56086;
+      var chinaLongitudeMin = 73.49926;
+      var chinaLongitudeMax = 135.08798;
+
+      if (latitude >= chinaLatitudeMin && latitude <= chinaLatitudeMax &&
+          longitude >= chinaLongitudeMin && longitude <= chinaLongitudeMax) {
+        return true; // 在中国大陆范围内
+      } else {
+        return false; // 不在中国大陆范围内
+      }
+    }
+
+    // 根据地区设置背景图片
+    function setBackgroundByLocation(isInChina) {
+      var body = document.getElementsByTagName('body')[0];
+
+      if (isInChina) {
+        body.style.backgroundImage = "url('../pic/bg_donate.jpg')";
+      } else {
+        body.style.backgroundImage = "url('../pic/bg_donate_all.jpg')";
+      }
+    }
+
+    // 页面加载完毕时获取地理位置信息
+    window.addEventListener('load', getVisitorLocation);
+  </script>
+ -->
+
+<h2 id="toc_0"><center><a href="./../../Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(中英双语).html"><font color=blue>第15章 打破旧定义，建立新定义<p>Chapter 15: Breaking Old Deﬁnitions, Establishing New Ones</font></a></center></h2>
+
+<p>&emsp;&emsp;&emsp;&emsp;在不同的时代和领域，人们对于某个事物或概念的定义往往会发生变化，这是由于人们对于事物或概念的认识不断深化、扩展和更新所致。旧的定义可能已经不能完全适应当前的环境和需求，因此，需要建立新的定义，以更好地表达人们的认识和需求。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In different times and fields, people&#39;s definitions of a thing or concept often change, due to the deepening, expansion, and updating of people&#39;s understanding of things or concepts. The old definition may no longer be fully applicable to the current environment and needs, so it is necessary to establish a new definition to better express people&#39;s understanding and needs.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;建立新定义的过程，通常是经历一个打破旧定义的过程。这个过程可能是由一些具有创新精神和创造力的人所发起的，他们提出了新的想法和概念，挑战了旧有的定义和认识。这些新的想法和概念，经过讨论、研究和实践，最终被广泛接受，并成为新的定义。同时，这个过程也需要人们对于旧有定义的反思和批判，以避免旧有定义的局限性和不足。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The process of establishing a new definition usually goes through a process of breaking the old definition. This process may be initiated by some innovative and creative people who propose new ideas and concepts, challenging the old definitions and understandings. These new ideas and concepts, after discussion, research, and practice, are ultimately widely accepted and become new definitions. At the same time, this process also requires people to reflect on and criticize old definitions to avoid their limitations and shortcomings.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;需要打破旧定义、建立新定义的情况，在各个领域都有出现。在科技领域，随着技术的不断发展，一些旧有的定义可能已经不能完全适应新的技术需求，需要重新定义。在文化领域，随着社会的不断变化和进步，一些旧有的文化定义也需要被打破或更新，以更好地反映当代社会的发展和变化。在法律领域，一些法律定义也需要随着社会变革和发展而不断更新和修改。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The need to break old definitions and establish new ones is present in various fields. In the field of technology, with the continuous development of technology, some old definitions may no longer fully adapt to new technological requirements and need to be redefined. In the cultural field, with the continuous changes and progress in society, some old cultural definitions also need to be broken or updated to better reflect the development and changes in contemporary society. In the legal field, some legal definitions also need to be continuously updated and modified with social change and development.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;总之，打破旧定义、建立新定义是人类认识和发展的必然过程，是推动社会进步和发展的重要动力。在这个过程中，需要保持开放的思维和创新精神，充分发扬人类智慧和创造力，以不断推动定义学的发展和进步。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In conclusion, breaking old definitions and establishing new ones are an inevitable process in human understanding and development, an important driving force for social progress and development. In this process, it is necessary to maintain open-mindedness and innovation spirit while fully utilizing human wisdom and creativity to continuously promote the development and progress of definology.<p align="justify"></p>
+
+<p><strong>为什么需要打破旧定义，并建立新定义？</strong><p align="justify">
+<strong>Why is it necessary to break old definitions and establish new ones?</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;在人类发展的历程中，随着科学技术的不断进步和社会群体的不断变革，我们常常需要打破旧定义，并建立新定义，以适应新的环境和需求。这种需求主要由以下两个方面驱动：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;In the course of human development, as science and technology continue to progress and social groups continue to change, we often need to break old definitions and establish new ones to adapt to new environments and needs. This need is mainly driven by the following two aspects:<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1.原有定义逐渐失去适用性</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1. The original definition gradually loses its applicability</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;原有的定义可能随着时间的推移逐渐失去适用性，因为这些定义可能是基于当时的环境和需求制定的。例如，随着信息技术的飞速发展，我们需要建立新的定义来描述新兴的概念和技术，例如，社交媒体、大数据、人工智能等。<p align="justify">
+&emsp;&emsp;&emsp;&emsp; The original definition may gradually lose its applicability over time because it may have been formulated based on the environment and needs of that time. For example, with the rapid development of information technology, we need to establish new definitions to describe emerging concepts and technologies, such as social media, big data, and artificial intelligence.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2.社会变革带来新的需求和挑战</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2. Social changes bring new needs and challenges.</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;随着社会的变革，人们的思想观念、行为方式、生活方式等也在不断变化。这种变化可能会引发新的需求和挑战，需要我们重新定义相关概念以适应新的环境。例如，随着性别平等和LGBT群体的逐渐崛起，我们需要打破传统的性别和性取向的定义，建立更加包容和开放的新定义。以下是两个典型的例子：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;With social change, people&#39;s ideas, behaviors, lifestyles, etc. are also constantly changing. This change may trigger new needs and challenges that require us to redefine related concepts to adapt to new environments. For example, with gender equality and the gradual rise of the LGBT community, we need to break traditional definitions of gender and sexual orientation and establish more inclusive and open new definitions. Here are two typical examples:<p align="justify">
+<strong>例子1：“互联网”</strong><p align="justify">
+<strong>Example 1: &quot;Internet&quot;</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;“互联网”这个概念最初是在20世纪80年代诞生的，当时它被定义为“连接数字网络的网络”，远远不能涵盖现代互联网的全部范畴。随着时间的推移，互联网不再是一个简单的连接数字网络的概念，它逐渐扩展到人工智能、大数据、区块链等众多技术领域，因此，我们需要建立更加全面和包容的新定义来描述“互联网”的新面貌。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The concept of &quot;Internet&quot; was originally born in the 1980s and was defined as a &quot;network that connects digital networks,&quot; which cannot cover the entire range of the modern Internet. Over time, the Internet is no longer a simple concept of connecting digital networks. It has gradually expanded to many technology fields such as artificial intelligence, big data, and blockchain. Therefore, we need to establish a more comprehensive and inclusive new definition to describe the new face of the &quot;Internet.&quot;<p align="justify">
+<strong>例子2：“性别”</strong> <p align="justify">
+<strong>Example 2: &quot;Gender&quot;</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;随着社会的变革，传统的性别定义已经无法满足现代世界的需求和挑战。例如，一些人可能认为性别只有男女两种，但现在越来越多的人开始认识到跨性别、双性人、无性恋等不同性别和性取向的存在。因此，我们需要打破旧有的性别定义，推动性别多元化的新定义，以更好地反映社会的多元性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;With social change, traditional gender definitions are no longer able to meet the needs and challenges of the modern world. For example, some people may believe that there are only two genders, male and female, but now more and more people are beginning to recognize the existence of different genders and sexual orientations, such as transgender, intersex, and asexual. Therefore, we need to break the old definitions of gender and promote a new definition of gender diversity to better reflect the diversity of society.<p align="justify"></p>
+
+<p><strong>打破旧定义，并建立新定义是必要和正确的。</strong><p align="justify">
+<strong>Breaking old definitions and establishing new ones is necessary and correct.</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;因为随着社会的发展和进步，人们对事物的认识和理解也会随之变化。一些旧的定义和观念可能已经过时或不再符合现代社会的需求和要求。建立新的定义能够更好地反映事物的本质和特点，使人们对事物有更深刻的理解和认识。以下是两个典型的例子：<p align="justify">
+&emsp;&emsp;&emsp;&emsp; Because as society develops and progresses, people&#39;s understanding and perception of things also change. Some old definitions and concepts may be outdated or no longer meet the needs and requirements of modern society. Establishing new definitions can better reflect the essence and characteristics of things, enabling people to have a deeper understanding and perception of them. Here are two typical examples:<p align="justify">
+<strong>例子1：破茧成蝶</strong><p align="justify">
+<strong>Example 1: Breaking Free from the Cocoon</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;破茧成蝶是一个寓意深刻的比喻，意思是通过不断的努力和追求，一个人可以从原本平凡的状态中蜕变成更加完美、独特的个体。这一比喻反映出了人类进化和发展的本质，传达着人们对于自我超越和发展的追求。在这个意义上，破茧成蝶的定义就是打破旧定义，并建立新定义的例子，它使人们更深刻地认识到了自我进化和发展的内在要求和不断超越自我的价值。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Breaking free from the cocoon is a profound metaphor that signifies how through continuous efforts and pursuit, a person can transform from an ordinary state into a more perfect and unique individual. This metaphor reflects the essence of human evolution and development, conveying people&#39;s pursuit of self-transcendence and development. In this sense, breaking free from the cocoon is an example of breaking old definitions and establishing new definitions, enabling people to have a deeper understanding of the inherent requirements of self-evolution and development and the value of constantly surpassing themselves.<p align="justify">
+<strong>例子2：自由</strong><p align="justify">
+<strong>Example 2: Freedom</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;自由是一个广泛而深刻的概念，人们对它的理解和定义也在不断变化和演进。在过去，自由的定义往往只是指没有被限制或束缚的情况，但随着社会的发展，人们对自由的认识也越来越复杂和深刻。现在，自由的定义已经包括了诸多方面的意义，包括思想自由、表达自由、行动自由等等，也反映了人们对个人权利和社会发展的不断追求。这一过程的实质就是打破旧定义，并建立新定义的过程。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Freedom is a broad and profound concept, and people&#39;s understanding and definition of it are constantly changing and evolving. In the past, the definition of freedom often only referred to situations where there were no restrictions or constraints, but with the development of society, people&#39;s understanding of freedom has become increasingly complex and profound. Now, the definition of freedom includes many aspects of meaning, such as freedom of thought, expression, action, etc., reflecting people&#39;s constant pursuit of individual rights and social development. The essence of this process is breaking old definitions and establishing new definitions.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>人类的进步离不开打破旧定义，并建立新定义。</strong>历史上，许多伟大的思想家、科学家、艺术家和创业家都是通过挑战现有的定义和想法，来推动人类的发展和进步的。他们的创造力和创新精神，创造了无数的奇迹和伟大的成就。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Human progress relies on breaking old definitions and establishing new ones.</strong> Throughout history, many great thinkers, scientists, artists, and entrepreneurs have pushed human development and progress by challenging existing definitions and ideas. Their creativity and innovative spirit have created countless miracles and great achievements.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;我们每个人都有机会成为这些伟大人物中的一员，通过打破旧的定义和思考方式，来创造新的定义和思考方式。这需要我们勇于挑战传统的思维方式和观念，敢于尝试新的想法和方法，以及持续地学习和创新。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Each and every one of us has the opportunity to become part of these great figures, by breaking old definitions and ways of thinking, to create new definitions and ways of thinking. This requires us to be brave enough to challenge traditional ways of thinking and concepts, to dare to try new ideas and methods, and to continue learning and innovating.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;无论我们是从事科学研究、技术创新、艺术创作、教育改革、社会公益还是商业创业，我们都应该不断地思考如何打破旧的定义和思考方式，来寻求更好的解决方案和更大的进步空间。只有这样，我们才能不断地创造历史，成就伟大的事业，为人类的未来作出更大的贡献。让我们一起挑战现有的定义和思考方式，拥抱创新和变革，为一个更加美好的世界而努力奋斗！<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Regardless of whether we are engaged in scientific research, technological innovation, artistic creation, educational reform, social welfare or business entrepreneurship, we should always think about how to break old definitions and ways of thinking to seek better solutions and greater progress. Only in this way can we continue to create history, achieve great causes, and make greater contributions to the future of mankind. Let us challenge existing definitions and ways of thinking together, embrace innovation and change, and strive for a better world!<p align="justify"></p>
+
+<p><strong>一个美丽人生：从作茧自缚到破茧成蝶的过程</strong><p align="justify">
+<strong>A Beautiful Life: The Process from Cocoon to Butterfly</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;在一个安静的林间小径旁，有一个小小的茧壳，里面住着一只蚕宝宝。它从蛋中孵化出来，一直在茧中努力工作，把自己完全包裹在茧壳中，隔绝了世界的一切。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Next to a quiet path in the woods, there is a small cocoon shell, where a silkworm lives. It hatches from an egg and has been working hard in the cocoon, completely wrapping itself in the cocoon shell, isolating itself from the world.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;蚕宝宝感觉自己的茧壳很舒适，非常安全。但是它开始感到一种奇怪的压迫感，它的身体渐渐变得太大了，无法继续在茧中生长。尽管它感到不安，但它并不知道怎么摆脱这种束缚，于是它继续在茧中待了下去。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The silkworm feels comfortable and very safe in its cocoon shell. However, it begins to feel a strange sense of oppression and its body gradually becomes too large to continue growing inside the cocoon. Despite feeling uneasy, it does not know how to escape this confinement, so it continues to stay inside the cocoon.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;但是，有一天，蚕宝宝感觉到了一些不寻常的事情。它的身体变得越来越紧，似乎茧壳的压力变得越来越大。然后，它意识到，这是茧壳对它的限制和压迫。它再也不能继续待在这里了，它需要破茧而出。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;But one day, the silkworm feels something unusual. Its body becomes tighter and it seems that the pressure from the cocoon shell is increasing. Then it realizes that this is the restriction and oppression of the cocoon shell. It can no longer stay here and needs to break free from the cocoon.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;蚕宝宝开始使劲挣扎，它用尽了全身的力气，终于破开了茧壳。这时，它变成了一只美丽的蝴蝶，展翅翱翔在天空中。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The silkworm begins to struggle hard, using all its strength, and finally breaks open the cocoon shell. At this moment, it becomes a beautiful butterfly, soaring in the sky with its wings spread.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;这个故事告诉我们，有时候我们会被旧定义所束缚，就像蚕宝宝被茧壳所困住。但是，我们不能一直待在自己的舒适区内，<strong>我们需要挑战自己，打破旧定义，并建立新定义，</strong>这就像蚕宝宝需要破茧而出，成为一只美丽的蝴蝶。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;This story tells us that sometimes we are confined by old definitions, just like the silkworm is trapped in the cocoon shell. However, we cannot always stay in our comfort zone. <strong>We need to challenge ourselves, break old definitions and create new ones,</strong> just like the silkworm needs to break free from the cocoon and become a beautiful butterfly.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;我们可以把这个故事与人类的生活联系起来。当我们被社会、文化、习惯等旧定义束缚时，我们往往会感到不自由和压抑。但是，只要我们有勇气打破旧定义，并建立新定义，我们就能变得更加自由和充实，就像蝴蝶展翅高飞一样。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;We can relate this story to human life. When we are shackled by old definitions, such as those imposed by society, culture, or habits, we often feel constrained and oppressed. However, if we have the courage to break free from these old definitions and establish new ones, we can become more free and fulfilled, just like a butterfly spreading its wings and soaring.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;所以，让我们勇敢地打破旧定义，去探索未知的领域，去挑战自己，成为我们自己的主人，拥有自己的想法和观念。让我们像蝴蝶一样，展翅高飞，创造属于自己美丽的人生吧！<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Therefore, let us have the courage to break old definitions, explore unknown areas, challenge ourselves, become masters of our own lives, and have our own ideas and beliefs. Let us spread our wings like a butterfly, soaring to new heights, and create a beautiful life that is uniquely our own!<p align="justify"></p>
+
+
+<br><br><br><br><br><br>
+
+<footer>
+  <div class="footer-content">
+    <p>Copyright&copy; Since 2023 by RobinShare.</p><p>All rights reserved.<a href="../../../声明statement.html">声明 Statement</a><p>
+  </div>
+</footer>
+
+</body>
+
+</html>

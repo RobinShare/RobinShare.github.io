@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DSVNNFSCR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DSVNNFSCR');
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>106_第6章 定义的作用范围Chapter 6- Scope of Deﬁnitions</title>
+
+
+<style type="text/css">
+/* 设置按钮的样式，这里使用示意图标表示卡通样式 */
+#playPauseButton {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 204, 0, 0.1); /* 卡通样式的颜色 */
+    border: none;
+    border-radius: 50%; /* 将按钮设置成圆形 */
+    background-image: url(../../pic/play_icon.png); /* 播放时的图标 */
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* 暂停状态的样式 */
+#playPauseButton.paused {
+    background-image: url(../../pic/pause_icon.png); /* 暂停时的图标 */
+}
+
+body {
+  // background: url(../pic/bg_donate.jpg);
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
+
+.footer-content {
+     position: fixed;
+     color: currentColor;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     padding: 20px;
+     text-align: center;
+    }
+    
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
+
+<!-- 使用 <audio> 元素插入 MP3 音频 -->
+<audio id="audioPlayer" controls autoplay>
+    <source src="./audio/第6章 定义的作用范围/第6章 定义的作用范围.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- 添加一个按钮，用于控制音频的播放和暂停 -->
+<button id="playPauseButton"></button>
+
+<script>
+    // JavaScript代码，用于实现按钮的随机移动和音频控制
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playPauseButton = document.getElementById('playPauseButton');
+
+    // 按钮点击事件，控制音频的播放和暂停
+    playPauseButton.addEventListener('click', function () {
+        if (audioPlayer.paused) {
+             audioPlayer.play();
+             playPauseButton.classList.remove('paused'); // 移除暂停样式
+        } else {
+            audioPlayer.pause();
+            playPauseButton.classList.add('paused'); // 添加暂停样式
+        }
+    });
+</script>
+
+ <!--   <script>
+    // 获取访问者的地理位置信息
+    function getVisitorLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+      }
+    }
+
+    // 成功获取地理位置信息的回调函数
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // 根据经纬度判断是否在中国大陆范围内
+      var isInChina = isLocationInChina(latitude, longitude);
+
+      // 根据地理位置设置不同的背景图片
+      setBackgroundByLocation(isInChina);
+    }
+
+    // 获取地理位置信息失败的回调函数
+    function error(error) {
+      console.error('Failed to retrieve visitor location.');
+    }
+
+    // 根据经纬度判断是否在中国大陆范围内
+    function isLocationInChina(latitude, longitude) {
+      // 判断逻辑：根据中国大陆范围的经纬度边界判断
+      var chinaLatitudeMin = 18.15284;
+      var chinaLatitudeMax = 53.56086;
+      var chinaLongitudeMin = 73.49926;
+      var chinaLongitudeMax = 135.08798;
+
+      if (latitude >= chinaLatitudeMin && latitude <= chinaLatitudeMax &&
+          longitude >= chinaLongitudeMin && longitude <= chinaLongitudeMax) {
+        return true; // 在中国大陆范围内
+      } else {
+        return false; // 不在中国大陆范围内
+      }
+    }
+
+    // 根据地区设置背景图片
+    function setBackgroundByLocation(isInChina) {
+      var body = document.getElementsByTagName('body')[0];
+
+      if (isInChina) {
+        body.style.backgroundImage = "url('../pic/bg_donate.jpg')";
+      } else {
+        body.style.backgroundImage = "url('../pic/bg_donate_all.jpg')";
+      }
+    }
+
+    // 页面加载完毕时获取地理位置信息
+    window.addEventListener('load', getVisitorLocation);
+  </script> -->
+
+
+<h2 id="toc_0"><center><a href="./../../Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(中英双语).html"><font color=blue>第6章 定义的作用范围<p>Chapter 6: Scope of Deﬁnitions</font></a></center></h2>
+
+<p>&emsp;&emsp;&emsp;&emsp;定义的作用范围是指定义适用的范围，也可以理解为定义所能影响的领域或范畴。定义的作用范围通常由以下因素决定：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The scope of a definition refers to the range or domain in which it applies. It can be understood as the area or category that a definition can affect. The scope of a definition is usually determined by the following factors:<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>定义者的认知和经验：</strong>定义者的认知和经验决定了他们能够定义的范围和程度。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Cognition and experience of the definer:</strong> The definer&#39;s cognition and experience determine the range and degree that they can define.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;这是因为定义者的认知和经验会影响到其选择定义的对象、定义的方式以及定义的精度等方面。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;This is because the definer&#39;s cognition and experience will affect their choice of the object being defined, the way it is defined, and the precision of the definition.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;举例来说，假设一个人从小到大都生活在城市里，他对于“农村”这个概念的理解可能比较模糊，难以准确地进行定义。而另一个人则在农村长大，对于“农村”这个概念的认知和经验更为深入，可以更准确地进行定义。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, suppose a person has lived in a city from childhood to adulthood. Their understanding of the concept of &quot;rural&quot; may be vague and difficult to define accurately. Another person who grew up in a rural area has a deeper understanding and experience of the concept of &quot;rural&quot; and can define it more accurately.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子是，一个医生对于某种疾病的定义可能比一般人更加精准和具体，因为医生在医学领域有专业的知识和经验，可以根据疾病的症状、病因、治疗方法等方面进行科学的定义。而对于一般人来说，对于这种疾病的定义可能会比较模糊或者不够准确。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Another example is that a doctor&#39;s definition of a certain disease may be more accurate and specific than that of a layperson because the doctor has specialized knowledge and experience in the medical field, which allows them to scientifically define the disease based on its symptoms, causes, and treatment methods. For a layperson, the definition of this disease may be relatively vague or not accurate enough.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>语言和符号系统：</strong>不同的语言和符号系统能够定义的范围和程度也不同。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Language and symbol systems:</strong> Different languages and symbol systems have different ranges and degrees that they can define.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;语言和符号系统是定义产生和传递的载体，它们对定义的作用范围有着重要的影响。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Language and symbol systems are the carriers of definition generation and transmission, and they have an important impact on the scope of definition.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;譬如，在数学中，函数被定义为一种将每个自变量映射到唯一的因变量的关系。但是在不同的语言和符号系统中，对于函数的定义可能略有不同，导致其作用范围的差异。例如，在某些语言和符号系统中，函数的定义可能包含对定义域和值域的限制，而在另一些语言和符号系统中，则可能不会有这些限制。这些差异会影响到函数在不同领域的应用范围和解释。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, in mathematics, a function is defined as a relationship that maps each independent variable to a unique dependent variable. However, in different languages and symbol systems, the definition of a function may differ slightly, resulting in differences in its scope of application. For example, in some languages and symbol systems, the definition of a function may include restrictions on the domain and range, while in other languages and symbol systems, there may be no such restrictions. These differences will affect the application scope and interpretation of functions in different fields.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子，在生物学中，种是一种生物分类单位，它被定义为可以互相繁殖并产生生育后代的个体群体。但是，在不同的语言和符号系统中，对于“种”的定义可能略有不同，导致其作用范围的差异。例如，在某些语言和符号系统中，“种”可能只包括有性繁殖的生物，而在另一些语言和符号系统中，“种”可能还包括无性繁殖的生物。这些差异会影响到生物学家在分类和研究生物多样性时的判断和决策。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Another example is in biology, where a species is a biological classification unit defined as a group of individuals that can interbreed and produce fertile offspring. However, in different languages and symbol systems, the definition of &quot;species&quot; may differ slightly, resulting in differences in its scope of application. For example, in some languages and symbol systems, &quot;species&quot; may only include sexually reproducing organisms, while in other languages and symbol systems, &quot;species&quot; may also include asexual reproducing organisms. These differences affect the judgment and decision-making of biologists in classifying and studying biological diversity.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>学科和领域：</strong>不同的学科和领域具有不同的专业术语和定义，它们的作用范围也有所不同。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Disciplines and fields:</strong> Different disciplines and fields have different professional terms and definitions, and their scope of application also varies.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;这是因为不同的学科和领域会有不同的概念和定义，其定义的作用范围也会因此而有所不同。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;This is because different disciplines and fields have different concepts and definitions, and their scope of application will also differ accordingly.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;例如，对于医学领域中的“病毒”这一概念，其定义的作用范围通常是限定在生物领域，主要涉及病毒的结构、生命周期、感染方式、致病机制等方面。而对于计算机科学领域中的“病毒”这一概念，其定义的作用范围则主要涉及计算机病毒的种类、感染方式、防范方法等方面。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, in the medical field, the concept of &quot;virus&quot; is usually limited to the biological field, mainly involving the structure, life cycle, infection methods, pathogenesis, and other aspects of viruses. In the field of computer science, the concept of &quot;virus&quot; mainly involves the types, infection methods, and prevention methods of computer viruses.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子是关于“生态系统”这一概念的定义。在生态学领域中，生态系统的定义的作用范围通常涉及到生物种群、生态环境、能量流动、物质循环等方面。而在城市规划领域中，生态系统的定义的作用范围则更加关注城市与自然环境的协调发展，主要涉及城市内部各种生态系统的结构、功能、相互作用等方面。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Another example is the definition of &quot;ecosystem&quot;. In the field of ecology, the scope of the definition of an ecosystem usually involves aspects such as biological populations, ecological environments, energy flow, and material cycling. In the field of urban planning, the definition of an ecosystem focuses more on the coordinated development of the city and the natural environment, mainly involving the structure, function, and interaction of various ecosystems within the city.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;因此，定义的作用范围通常受到学科和领域的限制，不同的学科和领域对同一概念的定义可能存在差异。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Therefore, the scope of a definition is usually limited by disciplines and fields, and different disciplines and fields may have different definitions of the same concept.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>社会和文化背景：</strong>不同的社会和文化背景对于定义的作用范围也有影响。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Social and cultural background:</strong> The scope of a definition is also influenced by different social and cultural backgrounds.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;这是因为不同的社会和文化背景会影响人们对事物的认知、理解和定义方式。例如，同一件事物在不同的文化中可能有不同的含义和定义。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;This is because different social and cultural backgrounds can affect people&#39;s cognition, understanding, and definition of things. For example, the same thing may have different meanings and definitions in different cultures.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;一个典型的例子是“礼仪”这个词。在中国文化中，“礼仪”是指符合社会道德规范的行为和仪式，具有深厚的文化内涵。而在西方文化中，“礼仪”通常被解释为一种应对社交场合的行为规范和习惯。这说明在不同的文化背景下，同一个概念的定义和作用范围可以有很大的差异。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;A typical example is the word &quot;etiquette&quot;. In Chinese culture, &quot;etiquette&quot; refers to behaviors and rituals that conform to social moral norms and has profound cultural connotations. In Western culture, &quot;etiquette&quot; is usually interpreted as a set of behavioral norms and habits for social occasions. This shows that the definition and scope of the same concept can vary greatly in different cultural backgrounds.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子是“家庭”这个概念。在西方社会中，“家庭”通常是指由父母和子女组成的核心家庭，而在中国传统文化中，“家庭”包含了更广泛的亲属关系，如祖父母、姑姑、叔叔等。这也说明在不同的社会背景中，同一个概念的定义和作用范围可以有所不同。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Another example is the concept of &quot;family&quot;. In Western society, &quot;family&quot; usually refers to the core family composed of parents and children, while in Chinese traditional culture, &quot;family&quot; includes a wider range of kinship relationships such as grandparents, aunts, uncles, etc. This also shows that the definition and scope of the same concept can vary in different social backgrounds.<p align="justify"></p>
+
+<p><strong>定义的作用范围具有哪些特性？</strong><p align="justify">
+<strong>What are the characteristics of the scope of a definition?</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>明确性：</strong>定义的作用范围必须清晰明确，不模糊、不含混。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Clarity:</strong> The scope of a definition must be clear and unambiguous, not vague or ambiguous.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;这是因为定义的主要目的是为了明确和界定一个概念或对象的意义和范围，使人们能够在交流和讨论中准确地理解和使用该概念或对象。因此，定义的作用范围应该是明确而精确的。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;This is because the main purpose of a definition is to clarify and define the meaning and scope of a concept or object, so that people can accurately understand and use it in communication and discussion. Therefore, the scope of a definition should be clear and precise.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;举例来说，一个典型的例子是数学中的“三角形”定义，它规定了一个图形必须满足哪些条件才能被称为三角形。根据这个定义，一个图形只有三个边和三个角时才能被称为三角形，这使得人们能够准确地理解和使用这个概念，并在数学问题中应用它。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, a typical example is the definition of &quot;triangle&quot; in mathematics, which specifies the conditions that a shape must meet to be called a triangle. According to this definition, a shape can only be called a triangle if it has three sides and three angles, which allows people to accurately understand and use this concept and apply it in mathematical problems.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子是生物学中的“生物物种”定义，它规定了哪些特征可以用来确定一个生物属于哪个物种。这个定义的明确性使得生物学家们能够准确地确定和研究不同物种之间的关系，并在保护和管理生物多样性方面提供了基础。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Another example is the definition of &quot;biological species&quot; in biology, which specifies which characteristics can be used to determine which species a living organism belongs to. The clarity of this definition enables biologists to accurately determine and study the relationships between different species and provides a foundation for protecting and managing biodiversity.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>限定性：</strong>定义的作用范围应该具有一定的限制和约束，使得该范围内的事物具有一定的共性和相关性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Restrictiveness:</strong> The scope of a definition should have certain limitations and constraints, so that the things within this scope have certain commonalities and relevancies.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;定义的作用范围通常具有限定性，即定义的对象只适用于特定的范围或情境。这是因为定义的目的是为了让人们在某种特定的背景下理解一个概念或对象，而不是在所有情况下都适用。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;The scope of a definition usually has restrictiveness, that is, the object being defined only applies to specific ranges or contexts. This is because the purpose of a definition is to enable people to understand a concept or object in a specific context rather than to apply it in all situations.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;一个典型的例子是科学中的术语。例如，“生物体”这个术语在生物学中有一个明确的定义，它只适用于具有特定特征的生命体，而不适用于非生命体。在其他学科领域，这个术语可能会有不同的含义或使用方式，因此在不同的上下文中，其适用范围也可能不同。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;A typical example is scientific terminology. For example, the term &quot;organism&quot; has a clear definition in biology, which only applies to living things with specific characteristics and does not apply to non-living things. In other fields of study, this term may have different meanings or uses, so its applicability may vary in different contexts.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;另一个例子是法律中的定义。例如，“盗窃”这个法律定义只适用于具有特定行为和意图的行为，而不适用于其他形式的财产侵害。在不同的法律体系中，这个定义的具体范围也可能略有不同。<p align="justify">
+Another example is the definition in law. For example, the legal definition of &quot;theft&quot; only applies to behaviors with specific actions and intentions, and does not apply to other forms of property infringement. In different legal systems, the specific scope of this definition may vary.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>全面性：</strong>定义的作用范围应该尽可能全面，包含该范围内的所有事物。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Comprehensiveness:</strong> The scope of a definition should be as comprehensive as possible and include all things within this scope.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;这是因为定义不仅仅限于给出一个概念的准确含义，还可以影响到相关领域的理论、方法、实践等方面。具体而言，<strong>定义的全面性包括以下几个方面：</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;This is because a definition not only determines the accurate meaning of a concept, but also affects the related theories, methods, and practices in relevant fields. Specifically, <strong>the comprehensiveness of a definition includes the following aspects:</strong><p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1.影响理论体系：</strong>定义对于一个学科的理论体系具有重要的影响。一项概念的定义不仅仅确定了它的含义，同时也为相关的理论提供了基础和框架。例如，在心理学领域，对于“智力”这一概念的不同定义，会导致不同的理论观点和研究方向。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1. Impact on theoretical systems:</strong> Definitions have an important impact on the theoretical systems of a discipline. The definition of a concept not only determines its meaning, but also provides a foundation and framework for related theories. For example, different definitions of the concept of &quot;intelligence&quot; in psychology can lead to different theoretical viewpoints and research directions.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2.指导方法和实践：</strong>定义也可以指导研究者在实践中如何操作。例如，在医学领域，对于“疾病”的定义不仅仅决定了医生如何对病人进行诊断，同时也决定了医生如何进行治疗和预防。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2. Guiding Methodology and Practice:</strong> Definitions can also guide how researchers operate in practice. For example, in medicine, the definition of &quot;disease&quot; not only determines how doctors diagnose patients, but also how they treat and prevent them.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;以下是两个具体的例子：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;Here are two specific examples:<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1.社会学中的“文化”概念：</strong>文化的定义涉及到社会学、人类学、语言学、心理学等多个学科，因此其作用范围非常广泛。在社会学中，文化的定义不仅仅涉及到符号、意义和传统等方面，还指导着社会学家如何研究社会的结构和变化。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1.The concept of &quot;culture&quot; in sociology:</strong> The definition of culture involves a wide range of disciplines, including sociology, anthropology, linguistics, and psychology, and therefore has a very broad scope. In sociology, the definition of culture involves not only symbols, meanings, and traditions, but also guides sociologists in how to study the structure and changes in society.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2.经济学中的“市场”概念：</strong>市场是经济学中一个非常重要的概念，其定义影响着经济学家如何分析市场的机制和效率。市场的定义不仅仅涉及到供需关系和价格形成机制，还包括了信息交流、竞争机制、制度环境等方面。这些因素都会影响市场的运作和效果，因此市场的定义具有很高的全面性。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2.The concept of &quot;market&quot; in economics:</strong> Market is a very important concept in economics, and its definition influences how economists analyze the mechanisms and efficiency of markets. The definition of a market involves not only supply and demand and price formation mechanisms, but also the exchange of information, competition, and the institutional environment. All of these factors affect the operation and effectiveness of markets, so the definition of a market is highly comprehensive.<p align="justify"></p>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>实用性：</strong>定义的作用范围应该有一定的实用价值，能够应用于解决具体的问题和情境。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>Practicality:</strong> The scope of the definition&#39;s role should have some practical value and be able to be applied to solve specific problems and situations.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;这是因为定义本身就是为了帮助人们理解和应用某一概念或对象，从而实现对这一概念或对象的掌握和利用。具体来说，定义的实用性通常表现在以下几个方面：<p align="justify">
+&emsp;&emsp;&emsp;&emsp;This is because the definition itself is designed to help people understand and apply a concept or object, so as to achieve mastery and utilization of that concept or object. Specifically, the usefulness of a definition is usually expressed in the following ways:<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1.精确性：</strong>定义能够准确地描述一个概念或对象的特性，从而避免了混淆和歧义的产生。这种精确性可以帮助人们更加准确地应用这一概念或对象，提高工作效率和准确度。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>1. Precision:</strong> A definition can accurately describe the characteristics of a concept or object, thus avoiding confusion and ambiguity. This precision can help people apply the concept or object more accurately and improve efficiency and accuracy.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2.指导性：</strong>定义能够为人们提供一个标准或准则，帮助人们判断和识别与这一概念或对象相关的事物。这种指导性可以帮助人们更好地理解和应用这一概念或对象，避免了迷失和方向不清的情况。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>2. Guidance:</strong> A definition can provide people with a standard or guideline to help them judge and identify things related to this concept or object. This guiding nature can help people to better understand and apply this concept or object, avoiding the situation of being lost and having unclear directions.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>3.统一性：</strong>定义能够为人们提供一个共同的语言和理解基础，使得不同的人在理解和应用这一概念或对象时能够达成一致。这种统一性可以促进合作和沟通，提高工作效率和协作能力。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>3. Uniformity:</strong> Definitions can provide people with a common language and basis of understanding, enabling different people to agree on the understanding and application of this concept or object. This uniformity can facilitate cooperation and communication, and improve efficiency and collaboration.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>4.可追溯性：</strong>定义能够为人们提供一个可追溯的来源和标准，使得人们能够对这一概念或对象进行深入的研究和分析。这种可追溯性可以帮助人们更好地了解这一概念或对象的本质和内涵，从而促进相关领域的发展和进步。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;<strong>4. Traceability:</strong> Definitions can provide people with a traceable source and standard, enabling people to conduct in-depth research and analysis of this concept or object. This traceability can help people better understand the essence and connotation of this concept or object, thus promoting the development and progress of the related field.<p align="justify">
+&emsp;&emsp;&emsp;&emsp;举例来说，数学中的定义可以帮助人们准确理解和应用数学概念，比如，“圆”的定义能够指导人们判断和绘制圆形；另外，计算机科学中的定义也具有实用性，比如，“算法”的定义能够帮助人们设计和实现更高效的计算机程序。<p align="justify">
+&emsp;&emsp;&emsp;&emsp;For example, definitions in mathematics can help people understand and apply mathematical concepts accurately, for example, the definition of &quot;circle&quot; can guide people to judge and draw circles; in addition, definitions in computer science are also practical, for example, the definition of &quot;algorithm&quot; can help people design and implement more efficient and effective algorithms. For example, the definition of &quot;algorithm&quot; can help people design and implement more efficient computer programs.<p align="justify"></p>
+
+<br><br><br><br><br><br>
+
+<footer>
+  <div class="footer-content">
+    <p>Copyright&copy; Since 2023 by RobinShare.</p><p>All rights reserved.<a href="../../../声明statement.html">声明 Statement</a><p>
+  </div>
+</footer>
+
+</body>
+
+</html>

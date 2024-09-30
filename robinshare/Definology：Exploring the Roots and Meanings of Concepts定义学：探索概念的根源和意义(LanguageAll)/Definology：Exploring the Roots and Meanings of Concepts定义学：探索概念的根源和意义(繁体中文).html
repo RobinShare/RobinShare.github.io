@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DSVNNFSCR"></script>
+<script>
+  // 打开弹窗
+  function openPopup() {
+     if (document.referrer === 'https://robinshare.github.io/robinshare/Definology%EF%BC%9AExploring%20the%20Roots%20and%20Meanings%20of%20Concepts%E5%AE%9A%E4%B9%89%E5%AD%A6%EF%BC%9A%E6%8E%A2%E7%B4%A2%E6%A6%82%E5%BF%B5%E7%9A%84%E6%A0%B9%E6%BA%90%E5%92%8C%E6%84%8F%E4%B9%89(LanguageAll)/Definology%EF%BC%9AExploring%20the%20Roots%20and%20Meanings%20of%20Concepts%E5%AE%9A%E4%B9%89%E5%AD%A6%EF%BC%9A%E6%8E%A2%E7%B4%A2%E6%A6%82%E5%BF%B5%E7%9A%84%E6%A0%B9%E6%BA%90%E5%92%8C%E6%84%8F%E4%B9%89(LanguageAll).html') {
+            document.getElementById("popup").style.display = "block";
+        }
+  }
+
+  // 关闭弹窗
+  function closePopup() {
+      document.getElementById("popup").style.display = "none";
+  }
+
+  // 在页面加载时自动触发弹窗
+  window.onload = openPopup;
+  
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DSVNNFSCR');
+
+
+//禁用F12
+window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+    // 判断是否按下F12，F12键码为123
+    if (event.keyCode == 123) {
+    event.preventDefault(); // 阻止默认事件行为
+    window.event.returnValue = false;
+    }
+}
+
+//禁用调试工具
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+var check = setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold || 
+        window.outerHeight - window.innerHeight > threshold) {
+        // 如果打开控制台，则刷新页面
+        window.location.reload();
+    }
+}, 1000);
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(双语版)</title>
+
+
+<style type="text/css">
+/* 弹窗样式 */
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#popup-content {
+    background-color: #ffffff;
+    width: 80%; /* 设置弹窗宽度为页面宽度的80% */
+    max-width: auto;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto; /* 启用纵向滚动条 */
+    max-height: 70%; /* 添加最大高度，确保内容可以滚动 */
+    text-align: justify; /* 设置文本两边对齐 */
+}
+
+/* 关闭按钮样式 */
+#close-btn {
+    float: right;
+    cursor: pointer;
+}
+
+/* 单独一行文字的样式 */
+.right-align {
+    text-align: right;
+}
+/* 虚线分割线的样式 */
+.divider {
+    border-top: 1px dashed black; /* 设置分割线为黑色虚线 */
+    margin: 10px 0;
+}
+
+body {
+background: url(./pic/bg_book.jpg);
+font-family: Helvetica, arial, sans-serif;
+font-size: 18px;
+line-height: 1.6;
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: white;
+padding: 30px; 
+}
+
+*{
+moz-user-select: -moz-none;
+-moz-user-select: none;/* Firefox私有属性 */
+-o-user-select:none; /* Opera私有属性 */
+-khtml-user-select:none;/* KHTML内核私有属性 */
+-webkit-user-select:none; /* WebKit内核私有属性 */
+-ms-user-select:none;/* IE私有属性(IE10及以后) */
+user-select:none;/* CSS3属性 */
+}
+
+
+body > *:first-child {
+margin-top: 0 !important; }
+body > *:last-child {
+margin-bottom: 0 !important; }
+
+a {
+color: #4183C4; }
+a.absent {
+color: #cc0000; }
+a.anchor {
+display: block;
+padding-center: 30px;
+margin-center: -30px;
+cursor: pointer;
+position: absolute;
+top: 0;
+center: 0;
+bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+margin: 20px 0 10px;
+padding: 0;
+font-weight: bold;
+-webkit-font-smoothing: antialiased;
+cursor: text;
+position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+text-decoration: none; }
+
+h1 tt, h1 code {
+font-size: inherit; }
+
+h2 tt, h2 code {
+font-size: inherit; }
+
+h3 tt, h3 code {
+font-size: inherit; }
+
+h4 tt, h4 code {
+font-size: inherit; }
+
+h5 tt, h5 code {
+font-size: inherit; }
+
+h6 tt, h6 code {
+font-size: inherit; }
+
+h1 {
+font-size: 24px;
+color: black; }
+
+h2 {
+font-size: 20px;
+border-bottom: 1px solid #cccccc;
+color: black; }
+
+h3 {
+font-size: 18px; }
+
+h4 {
+font-size: 16px; }
+
+h5 {
+font-size: 14px; }
+
+h6 {
+color: #777777;
+font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+font-size: 18px; }
+
+hr {
+background: transparent;
+border: 0 none;
+border-top: 1px solid #cccccc;
+height: 4px;
+padding: 0;
+margin: 10px 0;
+}
+
+body > h2:first-child {
+margin-top: 0;
+padding-top: 0; }
+body > h1:first-child {
+margin-top: 0;
+padding-top: 0; }
+body > h1:first-child + h2 {
+margin-top: 0;
+padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+margin-top: 0;
+padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+margin-top: 0;
+padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+margin: 10px 0;
+margin-top: 0; }
+
+li p.first {
+display: inline-block; }
+li {
+margin: 0; }
+ul, ol {
+padding-center: 30px; }
+
+ul :first-child, ol :first-child {
+margin-top: 0; }
+
+dl {
+padding: 0; }
+dl dt {
+font-size: 14px;
+font-weight: bold;
+font-style: italic;
+padding: 0;
+margin: 15px 0 5px; }
+dl dt:first-child {
+padding: 0; }
+dl dt > :first-child {
+margin-top: 0; }
+dl dt > :last-child {
+margin-bottom: 0; }
+dl dd {
+margin: 0 0 15px;
+padding: 0 15px; }
+dl dd > :first-child {
+margin-top: 0; }
+dl dd > :last-child {
+margin-bottom: 0; }
+
+blockquote {
+border-center: 4px solid #dddddd;
+padding: 0 15px;
+color: #777777; }
+blockquote > :first-child {
+margin-top: 0; }
+blockquote > :last-child {
+margin-bottom: 0; }
+
+table {
+padding: 0;border-collapse: collapse; }
+table tr {
+border-top: 1px solid #cccccc;
+background-color: white;
+margin: 0;
+padding: 0; }
+table tr:nth-child(2n) {
+background-color: #f8f8f8; }
+table tr th {
+font-weight: bold;
+border: 1px solid #cccccc;
+margin: 0;
+padding: 6px 13px; }
+table tr td {
+border: 1px solid #cccccc;
+margin: 0;
+padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+margin-bottom: 0; }
+
+img {
+max-width: 100%;
+height: auto; }
+
+span.frame {
+display: block;
+overflow: hidden; }
+span.frame > span {
+border: 1px solid #dddddd;
+display: block;
+float: center;
+overflow: hidden;
+margin: 13px 0 0;
+padding: 7px;
+width: auto; }
+span.frame span img {
+display: block;
+float: center; }
+span.frame span span {
+clear: both;
+color: #333333;
+display: block;
+padding: 5px 0 0; }
+span.align-center {
+display: block;
+overflow: hidden;
+clear: both; }
+span.align-center > span {
+display: block;
+overflow: hidden;
+margin: 13px auto 0;
+text-align: center; }
+span.align-center span img {
+margin: 0 auto;
+text-align: center; }
+span.align-right {
+display: block;
+overflow: hidden;
+clear: both; }
+span.align-right > span {
+display: block;
+overflow: hidden;
+margin: 13px 0 0;
+text-align: right; }
+span.align-right span img {
+margin: 0;
+text-align: right; }
+span.float-center {
+display: block;
+margin-right: 13px;
+overflow: hidden;
+float: center; }
+span.float-center span {
+margin: 13px 0 0; }
+span.float-right {
+display: block;
+margin-center: 13px;
+overflow: hidden;
+float: right; }
+span.float-right > span {
+display: block;
+overflow: hidden;
+margin: 13px auto 0;
+text-align: right; }
+
+code, tt {
+margin: 0 2px;
+padding: 0 5px;
+white-space: nowrap;
+border: 1px solid #eaeaea;
+background-color: #f8f8f8;
+border-radius: 3px; }
+
+pre code {
+margin: 0;
+padding: 0;
+white-space: pre;
+border: none;
+background: transparent; }
+
+.highlight pre {
+background-color: #f8f8f8;
+border: 1px solid #cccccc;
+font-size: 18px;
+line-height: 19px;
+overflow: auto;
+padding: 6px 10px;
+border-radius: 3px; }
+
+pre {
+background-color: #f8f8f8;
+border: 1px solid #cccccc;
+font-size: 18px;
+line-height: 19px;
+overflow: auto;
+padding: 6px 10px;
+border-radius: 3px; }
+pre code, pre tt {
+background-color: transparent;
+border: none; }
+
+sup {
+font-size: 0.83em;
+vertical-align: super;
+line-height: 0;
+}
+
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* 移动终端适配 */
+@media only screen and (max-width: 600px) {
+body {
+font-size: 18px;
+margin:0 auto;
+}
+
+h1 {
+font-size: 20px;
+}
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+body {
+padding: 2cm; 
+}
+}
+</style>
+
+
+</head>
+
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+
+<noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript> 
+
+<center><img style="max-width:100%;overflow:hidden;" src="../document/images/definology.png"></center>
+
+<h1><center><font color=black>《定義學：探索概念的根源和意義》</font></center></h1>
+<h1 id="toc_0"><center><a href="./Definology：Exploring the Roots and Meanings of Concepts定义学：探索概念的根源和意义(LanguageAll).html"><font color=blue>目錄</font></center></h1>
+
+<p><center><a href="./md/zh_tw/001_写作初衷Original Intention of Writing.html"><font color=blue>寫作初衷</font></a> </center> <p>
+<center><a href="./md/zh_tw/002_书籍简介Book Introduction.html"><font color=blue>書籍簡介</font></a></center> <p>
+<center><a href="./md/zh_tw/003_鸣谢Acknowledgement.html"><font color=blue>鳴謝</font></a></center> <p>
+
+<h3 id="toc_1"><center>定義的開天</center></h3>
+
+<p><center><a href="./md/zh_tw/101_第1章 定义的概念Chapter 1- Deﬁned Concepts.html"><font color=blue>第1章 定義的概念 </font></a></center><p>
+<center><a href="./md/zh_tw/102_第2章 定义的基础Chapter 2- The Foundation of Deﬁnitions.html"><font color=blue>第2章 定義的基礎 </font></a></center><p>
+<center><a href="./md/zh_tw/103_第3章 定义者Chapter 3- Deﬁners.html"><font color=blue>第3章 定義者 </font></a></center><p>
+<center><a href="./md/zh_tw/104_第4章 定义权Chapter 4- Deﬁnition Rights.html"><font color=blue>第4章 定義權 </font></a></center><p>
+<center><a href="./md/zh_tw/105_第5章 定义的对象Chapter 5- Deﬁned Objects.html"><font color=blue>第5章 定義的對象 </font></a></center><p>
+<center><a href="./md/zh_tw/106_第6章 定义的作用范围Chapter 6- Scope of Deﬁnitions.html"><font color=blue>第6章 定義的作用範圍 </font></a></center><p>
+
+<h3 id="toc_2"><center>定義的延伸</center></h3>
+
+<p><center><a href="./md/zh_tw/207_第7章 定义的继承Chapter 7- Inheritance Deﬁnitions.html"><font color=blue>第7章 定義的繼承 </font></a></center><p>
+<center><a href="./md/zh_tw/208_第8章 定义的层次性Chapter 8- Hierarchical Deﬁnitions.html"><font color=blue>第8章 定義的層次性</font></a></center><p>
+<center><a href="./md/zh_tw/209_第9章 定义的强化性Chapter 9- Deﬁnition of Reinforcement.html"><font color=blue>第9章 定義的強化性</font></a></center><p>
+<center><a href="./md/zh_tw/210_第10章 定义的有效性Chapter 10- Validity of Deﬁnitions.html"><font color=blue>第10章 定義的有效性</font></a></center><p>
+<center><a href="./md/zh_tw/211_第11章 定义的时效性Chapter 11- Timeliness of Deﬁnitions.html"><font color=blue>第11章 定義的時效性 </font></a></center><p>
+
+<h3 id="toc_3"><center>定義的涅槃</center></h3>
+
+<p><center><a href="./md/zh_tw/312_第12章 定义之创新根源Chapter 12- Deﬁnition is the Roots of Innovation.html"><font color=blue>第12章 定義之創新根源 </font></a></center><p>
+<center><a href="./md/zh_tw/313_第13章 定义之故步自封Chapter 13- Deﬁnition Leads to Solids Steps.html"><font color=blue>第13章 定義之故步自封 </font></a></center><p>
+<center><a href="./md/zh_tw/314_第14章 定义之矛盾冲突Chapter 14- Deﬁnitions of Contradictions and Conflicts.html"><font color=blue>第14章 定義之矛盾衝突 </font></a></center><p>
+<center><a href="./md/zh_tw/315_第15章 打破旧定义，建立新定义Chapter 15- Breaking Old Deﬁnitions, Establishing New Ones.html"><font color=blue>第15章 打破舊定義，建立新定義</font></a></center><p>
+<center><a href="./md/zh_tw/401_结语Final Words.html"><font color=blue>結語</font></a></center><p>
+<center><a href="./md/zh_tw/402_定义之歌Song of Deﬁnition.html"><font color=blue>定義之歌 </font></a></center><p>
+<center><a href="./md/zh_tw/403_附录 书籍的新定义Appendix- A New Deﬁnition of Books.html"><font color=blue>附錄 書籍的新定義</font></a></center><p>
+<center><a href="./md/zh_tw/404_书籍索引Book Index.html"><font color=blue>書籍索引 </font></a></center><p>
+
+
+<!-- 弹窗 -->
+<div id="popup">
+<div id="popup-content">
+  
+<h1><strong><center>自序</center></strong></h1>
+  
+<p>&emsp;&emsp;&emsp;&emsp;在此之前，《定義學：探索概念的根源和意義》一書已經完成通篇的寫作。 限於與之相關的一些思考還沒有形成閉環，因此，該書的出版計劃被停止了。 至於，哪些思考呢？ 思考的結論是什麼？ 將在這裡提出來，並給出決定該書出版的理由。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;創新，一個恆古不變的話題。 創新通常是建立在現有概念、知識和技術的基礎上進行的，其可以涉及改進、擴展或重新組合現有的元素。 這種漸進式的創新更容易被市場和社會接受，因為它們是基於已經存在的理解和經驗。 反之，從0到1的原創性創新可能更具挑戰性，因為它們可能涉及破除傳統觀念、重新思考問題，或創造全新的解決方案。 從0到1的原創性創新通常需要更多的風險和資源，在成功之前，這些原生的概念往往很難被推廣和接受。 但如果成功，它們可以徹底改變產業和社會。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;為什麼要強調概念和大腦活動的連結呢？ 因為定義的基礎著實重要。 <strong>概念的底層不是大腦活動，而是符號和符號系統。 </strong>符號可以是語言中的詞彙、圖形、數字或其他形式的符號，而這些符號則用來代表最原初的概念和想法。 大腦活動大多時候是局限於符號和符號系統的，其結果則是產生一系列的概念。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;當我們思考或使用語言時，依據符號系統的構造規則，我們將這些符號組合在一起，以創建更為複雜的概念和表達。 而符號系統是文化和社會環境中的產物，其允許我們分享和傳遞知識、思想和理念。 在這個過程中，大腦活動起著關鍵的作用，它們負責處理符號、將它們與特定的概念關聯起來，並支持我們的思考和語言能力。 <strong>打個比方，大腦活動是農夫，符號和符號系統是耕地，創造的概念是生長的農作物。 </strong>因此，概念的底層是符號和符號系統，而大腦活動則是在其基礎上進行的，用來處理和操作概念。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;相信到這裡，許多讀者已經意識到了什麼。 沒錯，現在你閱讀的文字，以及對應每個文字的發音就是伴隨你一生的符號和符號系統。 不同的讀者可能來自不同的國家，為此，有的讀者使用的是中文漢字符號和符號系統；有的讀者使用的是英語字母符號和符號系統；有的讀者使用的是拉丁語字符符號和符號 系統…<p align="justify">
+  
+<p>&emsp;&emsp;&emsp;&emsp;<strong>是不是不同的符號和符號系統就代表了其不同的先進性？ 答案是肯定的。 </strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;建構一套先進的符號和符號系統是一個複雜而多層次的過程，通常需要深入的研究、設計和發展。 <p align="justify">
+
+<center><img src="./pic/符號與符號系統設計流程_自序.png" alt="符號與符號系統設計流程"></center>
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第一，是明確目標和用途。 </strong>確定你希望這套符號系統用於什麼目的。 是為了語言處理、知識表示、智慧推理、機器學習等？ 確定你希望這套符號系統能夠處理的領域和問題類型。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第二，是研究現有工作。 </strong>研究領域內的現有研究和技術，了解已經存在的符號系統和相關理論。 查看成功的案例，以了解它們是如何建構和使用符號系統的。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第三，是設計符號。 </strong>確定你的符號集，這些符號將用來表示不同的概念和資訊。 定義符號之間的關係和規則，包括語法和語義規則。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第四，是建立知識庫。 </strong>建立一個知識庫，其中包含你希望系統能夠處理的各種資訊和概念。 確保知識庫的結構和組織能夠支持符號系統的目標和任務。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第五，是發展符號處理工具。 </strong>包括開發符號處理工具和演算法，用於對符號進行操作、推理和推斷。 這可能涉及自然語言處理、邏輯推理、模式匹配等技術。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第六，是測試和評估。 </strong>對你的符號系統進行測試，確保它在各種情境下都能夠正常運作。 進行評估，以確定係統在特定任務上的表現如何，然後進行改進。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第七，是系統持續改善。 </strong>符號系統是一個不斷發展的領域，因此，要保持更新和改進你的系統。 回饋和使用者經驗可以幫助你改善系統的效能和功能。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第八，是整合機器學習和深度學習。 </strong>考慮將符號系統與機器學習和深度學習方法結合，以提高系統的適應性和智慧性。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>第九，是應用領域適配。 </strong>確保你的符號系統適應你希望應用的具體領域和問題，可能需要客製化的開發和調整。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;需要注意的是，建構先進的符號系統是一個複雜的工程，需要跨學科的知識和團隊合作。 還需要長期的努力和不斷的研究和發展。 <p align="justify">
+  
+<p>&emsp;&emsp;&emsp;&emsp;<strong>為了讓讀者加以理解符號和符號系統，以下是一個簡單且具備足夠的表達能力的範例：</strong><p align="justify">
+
+<strong>符號：</strong>
+<p>&emsp;&emsp;&emsp;&emsp;字母和數字：使用26個拉丁字母和阿拉伯數字0-9，它們是基本的符號元素。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;基本符號：定義一組基本符號，如+、-、*、/、=，用來表示基本的數學和邏輯運算。 <p align="justify">
+
+<strong>註解：</strong>
+<p>&emsp;&emsp;&emsp;&emsp;字母和數字：字母用於表示文字訊息，數字用於表示數量和計數。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;基本符號：<p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;+ ：加法操作，表示兩個數字相加。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;- ：減法操作，表示從一個數中減去另一個數。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;* ：乘法運算，表示兩個數的乘積。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;/ ：除法操作，表示一個數除以另一個數。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;= ：等於號，表示兩個表達式或值相等。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;這是一個非常基礎的符號系統範例，僅包括數學和邏輯運算的一小部分。 一個實際的符號系統可能需要更多的符號來表示更複雜的概念和資訊。 這個系統的優勢在於它的簡潔性，但也有明顯的限制。 <strong>要讓系統更先進，可以考慮以下改進：</strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>擴展符號集：</strong>添加更多的符號，以支持表示不同類型的信息，例如文字、圖形、音頻等。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>引入規則：</strong>定義符號之間的規則，以支援更複雜的計算和推理。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>引入變數和函數：</strong>允許引入變數和函數，以支援符號系統的抽象性和通用性。 <p align="justify">
+<p>&emsp;&emsp;&emsp;&emsp;<strong>引入符號的上下文：</strong>考慮符號的上下文，以便更好地理解和解釋符號的含義。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;符號和符號系統的複雜度和先進程度將取決於特定的用途和需求。 建立一套符號系統需要深思熟慮，以確保其能夠滿足特定任務和目標。 這也是為什麼要花這麼大的篇幅在強調符號和符號系統的初衷。 <strong>一套先進的符號和符號系統的標誌之一是該符號和符號系統的持續改進。 </strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;符號和符號系統的形成過程是複雜的，通常經歷了多個階段和演化過程。 以下是<strong>符號和符號系統形成的一般過程：</strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>感知與經驗：</strong>符號的形成通常從感知和經驗開始。 人類和許多動物透過感覺器官來感知外在世界，從中獲得資訊。 這些感知的訊息隨後會被大腦處理和編碼。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>抽象與一般化：</strong>在感知和經驗的基礎上，大腦會進行抽象和一般化的過程。 這意味著從具體的感知中提取出通用的特徵或模式。 例如，透過觀察多種不同的椅子，我們可以形成一個概念，表示"椅子"，它包括了各種不同類型的椅子。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>符號化：</strong>抽象的過程可能導致符號的形成。 符號是代表特定概念或物件的標誌或表示。 在自然語言中，字母和單字就是符號，它們代表特定的聲音、詞彙或概念。 符號也可以是非語言的，如道路標誌或數學符號。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>語言的發展：</strong>符號系統通常與語言的發展密切相關。 語言是一種符號系統，其允許人們用符號來表達思想、傳達訊息和溝通。 語言符號包括單字、文法規則、句子結構等。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>符號的組合：</strong>符號系統的一個關鍵特徵是，能夠將符號組合在一起，以表示更複雜的概念和資訊。這種組合的方式受到語法和語義規則的約束，這些規則定義了符號如何組合，以及符號組合的含義。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>文化和社會影響：</strong>符號系統的形成，也受到文化和社會因素的影響。 不同文化和社會，可能會有不同的符號和符號解釋。 符號系統通常是特定文化和社會共同享有的，在社會互動和傳承中，這些符號系統傳遞給下一代。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>技術和科學的推動：</strong>隨著技術和科學的發展，新的符號和符號系統被創造出來，以滿足不斷變化的需求。 例如，電腦科學中的程式語言、數學中的符號表示法等都是技術和科學進步的產物。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;符號和符號系統的形成是一個反映人類認知、社會和文化演進的複雜過程。 這些符號和符號系統是我們思考、溝通和理解世界的關鍵工具，經過長期的演化和發展，不斷適應人類需求的變化。 在各個領域中，這些符號和符號系統都發揮著重要作用，包括語言、科學、技術和藝術等。 <p align="justify">
+  
+<p>&emsp;&emsp;&emsp;&emsp;若你已經讀到這裡了，並且你身邊很多的朋友，也正準備翻開第一頁，那麼寫這篇序的目的已完成了一半。 剩下的另一半，也請耐心看完或另抽時間再讀。 <p align="justify">
+
+<br>
+<!-- 虛線分割線 -->
+<div class="divider"></div>
+<br>
+
+<p>&emsp;&emsp;&emsp;&emsp;沒錯，不同的符號和符號系統造就了邊界與屏障。 正如，該書出版之初，可能僅有中文版或英文版，為此，如果你是一個只會本國語言的日本人、韓國人或法國人，那麼只能等該書被翻譯成相應的日文 、韓文或法文後，才有機會探索這本書其中的奧秘。 <p align="justify">
+  
+<p>&emsp;&emsp;&emsp;&emsp;未來是幸運的，<strong>人類是可以透過跨越不同的符號和符號系統，來擴大其在不同物種內部的活動，一般透過以下方式實現：</strong ><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>學習與適應：</strong>人類是高度適應性的生物，能夠學習並適應不同的環境和文化。 這包括學習不同的語言、符號系統和文化規則。 透過教育和經驗，人們能夠掌握不同的符號系統，從而參與不同物種內部的活動。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>翻譯與通譯：</strong>翻譯和通譯是從一套符號系統轉化成另一套符號系統的過程。 這可以幫助人們在不同語言和文化之間溝通和理解。 翻譯工具和專業翻譯人員可以將文字、口語、符號和符號系統從一種語言轉化為另一種語言，使訊息能夠跨越語言障礙。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>跨學科研究：</strong>許多領域的研究涉及不同的符號和符號系統。 例如，在跨學科科學研究中，科學家可能需要理解和整合來自生物學、化學、物理學、電腦科學等不同領域的符號系統。 這有助於人們在不同學科之間合作，解決複雜的問題。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>多模態交流：</strong>多模態交流涉及多種符號和感官系統的結合。 這包括語言、視覺、聽覺、觸覺等多個感官通道。 人們可以透過多種方式表達和理解訊息，從而跨越不同符號和符號系統之間的界限。 <p align="justify">
+
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>科技與工具的幫助：</strong>科技和工具的發展也有助於人們跨越不同符號和符號系統之間的障礙。 例如，機器翻譯和自然語言處理技術能夠自動將文字從一種語言翻譯成另一種語言。 圖像辨識和音訊處理技術可以將不同的感官資訊轉化為文字或其他可理解的符號。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;<strong>文化交流與互動：</strong>人們透過文化交流和互動來了解和尊重不同的符號系統和文化。 這包括參與文化交流活動、學習其他文化的歷史和價值觀，以及尊重不同文化背景的個體。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;透過這些方式乃至其他更多方式，人類能夠跨越不同的符號和符號系統，擴大其在不同物種內部的活動。 這種能力使人們能夠更廣泛地參與社會、文化和科學活動，促進知識和文化的傳播與交流。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;為此，在未來的世界裡，人類的發展將邁入一個充滿創意和進步的新紀元，這是一個發散化的時代，人類漸漸打破各個物種的符號和 符號系統的界限，邁向智慧化的物種。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在這個未來，人類已經超越了過去的局限，不再受限於單一的符號系統。 開始掌握了多種符號和語言，能夠輕鬆地跨越語言、文化和學科的障礙。 這不僅透過強大的機器學習和人工智慧技術實現，還得益於人類智慧的提升。 人們不再受到符號的束縛，而是能夠自由地思考、創造和表達。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;人類的思維方式已從線性、單一的符號系統逐漸演化為多維度、跨領域的智慧。 他們能夠以一種全新的方式理解和處理訊息，不再受制於傳統的思考模式。 這使得跨學科研究和創新變得更加容易，人類能夠解決以前被認為不可能解決的複雜問題。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在這個未來的世界裡，人類的智慧不再受限於自身的生物學和認知能力。 他們可能會與先進的生物科技融合，擁有增強的認知和感知能力。 這些增強的能力將使他們更加智慧、創造力更強，有助於推動科學、技術和藝術的前沿。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;最重要的是，人類將以更開放和合作的方式與其他物種互動。 他們將不僅僅是地球上的一種生物，還將成為智慧宇宙中的一員，與其他智慧生物分享知識、文化和藝術。 這將為人類帶來更廣泛的視野和更深刻的理解，使他們能夠在宇宙中發揮更大的作用。 <strong>這將是一個充滿無限可能性的時代，人類將以前所未有的方式探索和塑造未來。 </strong><p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;以下是幾個可預見的未來假設情境：<p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在未來的世界中，人們可以踏上一次令人嘆為觀止的森林之旅。 他們走入茂密的森林，能夠與森林中的生物建立心靈連結。 與樹木、鳥類、狐狸和其他動物的對話成為可能，這種交流不僅是語言的交換，更是一種情感和智慧的分享。 人類學到如何保護和維護這個生態系統，以實現與大自然的和諧共生。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;人們不僅能夠與海洋生物互動，還能夠深入海底，探索深海中的奇幻景觀。 他們穿著特殊的海底服裝，與鯨魚、章魚和珊瑚礁共舞。 透過與海洋生物的情感交流，人們可以理解海洋的需求，並努力保護這個寶貴的自然資源。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;人類已經掌握了飛翔的技能，他們可以隨心所欲地在天空中飛翔。 與鳥兒的交流變得更加深入，這種交流不僅包括聲音和語言，還包括飛行的姿勢和舞蹈。 這種與鳥類的合作不僅讓人類享受自由翱翔的樂趣，也幫助他們更好地保護生態平衡。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在這個未來的世界裡，不同物種之間的合作不僅限於情感交流，也包括智慧的共創。 人類與其他生物一起解決挑戰，推動科學和技術的進步。 例如，人類與海洋生物合作研究海洋污染，並與鳥類一起監測氣候變遷。 這種跨物種的協作加速了解決全球問題的能力。 <p align="justify">
+
+<p>&emsp;&emsp;&emsp;&emsp;在這個充滿奇蹟和和諧的未來世界中，人類與自然實現了前所未有的聯繫和互動。 這種互動不僅改變了人類的生活方式，也提高了他們對大自然的尊重和保護意識，共同建立一個更永續、更和諧的地球。 這是一個充滿希望、智慧和美麗的未來景象。 <p align="justify">
+  
+<p>&emsp;&emsp;&emsp;&emsp;若是你已經讀到這裡了，剩下的另一半目的基本上完成。 相信，你開始意識到，這將會是一本改變世界的書。 <p align="justify">
+
+<br>
+<!-- 虛線分割線 -->
+<div class="divider"></div>
+<br>
+
+<p>&emsp;&emsp;&emsp;&emsp;改變世界，我一個人做不到，你一個人也做不到。 但這本書《定義學：探索概念的根源與意義》可以做得到，而出版這本書只是一個開始。 本書以分享對概念的獨特見解與思考，為讀者提供一種全新的思考方式或理解概念的方式。 透過本書出版，想尋找書中的觀點和理念可能會吸引到的一些認同者，尤其是重要議題上有共鳴的認同者，以建立有意義的社交，進而分享相似的價值觀和興趣等。 希望本書的出版，可以將其中的有益思想和見解傳遞給後代，留下一種持久的遺產。 <p align="justify">
+  
+<p>&emsp;&emsp;&emsp;&emsp;更是為了以後，留下一個解釋，留下足夠的影響。 生死之哲，陰陽之哲，零壹之哲，有無之哲，貧富之哲，真假之哲，好壞之哲，善惡之哲，利害之哲，大小之哲，快慢之哲， 遠近之哲，里外之哲，高低之哲，亮暗之哲，人畜之哲，敵友之哲，親疏之哲，愛恨之哲，冷熱之哲，寬窄之哲，粗細之哲，深淺之 哲，薄厚之哲… …乃始於差分，概念之本源。 <p align="justify">
+<br>
+<br>
+
+<div class="right-align"> 2023年10月7日&emsp;&emsp;&emsp;&emsp;</div>
+
+  <center><button onclick="closePopup()">已閱讀完自序部分！</button></center>
+</div>
+</div>
+</body>
+
+<br><br><br><br><br><br>
+<center>
+<footer>
+  <div class="footer-content">
+    <p>版權所有&copy;自2023年起 由RobinShare所有。 </p><p>保留所有權利。<a href="../声明statement.html">聲明 Statement</a><p>
+  </div>
+</footer>
+</center>
+
+</html>
+
+

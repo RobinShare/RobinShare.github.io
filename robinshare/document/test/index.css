@@ -1,0 +1,45 @@
+*{padding: 0;margin:0;}
+html,body{height: 100%;}
+.center{position: absolute;left: 0;right: 0;top:0;bottom: 0;margin:auto auto;}
+.maxDiv{ perspective: 1200px;width: 500px;height: 500px;}
+.minDiv{width: 150px;height: 150px; transform-style: preserve-3d;animation: go 8s linear infinite;}
+.minDiv > div{width: 150px;height: 150px;box-shadow: 0 0 15px ; position: absolute;transition: 1s;animation-play-state:running;}
+.minDiv:hover{animation-play-state:paused;}
+.minDiv:hover > div{animation: goColor 3s linear forwards; }
+.minDiv > div:nth-child(1){transform: translateZ(-75px);}
+.minDiv > div:nth-child(2){transform:rotateY(90deg) translateZ(75px);}
+.minDiv > div:nth-child(3){transform:rotateY(90deg) translateZ(-75px);}
+.minDiv > div:nth-child(4){transform:rotateX(90deg) translateZ(-75px);}
+.minDiv > div:nth-child(5){transform:rotateX(90deg) translateZ(75px);}
+.minDiv > div:nth-child(6){transform: translateZ(75px);}
+
+.minDiv:hover > div:nth-child(1){ transform:translateZ(-150px);}
+.minDiv:hover > div:nth-child(3){ transform:rotateY(90deg) translateZ(-150px); }
+.minDiv:hover > div:nth-child(4){ transform:rotateX(90deg) translateZ(-150px);}
+.minDiv:hover > div:nth-child(2){transform:rotateY(90deg) translateZ(150px);}
+.minDiv:hover > div:nth-child(5){transform:rotateX(90deg) translateZ(150px);}
+.minDiv:hover > div:nth-child(6){ transform: translateZ(150px);}
+.minDiv>span{display: block;height: 50px;width: 50px; transform-style: preserve-3d;}
+.minDiv:hover >span{animation: go 4s linear infinite;}
+.minDiv>span>div{height: 50px;width: 50px;position:         absolute;;box-shadow: 0 0 10px rgba(156,225,27,0.2);}
+.minDiv>span>div:nth-child(1){transform: translateZ(-25px);}
+.minDiv>span>div:nth-child(2){transform:rotateY(90deg) translateZ(25px);}
+.minDiv>span>div:nth-child(3){transform:rotateY(90deg) translateZ(-25px);}
+.minDiv>span>div:nth-child(4){transform:rotateX(90deg) translateZ(-25px);;}
+.minDiv>span>div:nth-child(5){transform:rotateX(90deg) translateZ(25px);}
+.minDiv>span>div:nth-child(6){transform: translateZ(25px);}
+@keyframes goColor{
+    0%{
+        opacity: 0.5;box-shadow: 0 0 15px rgba(118,2,253,0.1);}
+    50%{opacity: 0.7;box-shadow: 0 0 15px rgba(118,2,253,0.2);}
+    100%{opacity: 0.5;box-shadow: 0 0 15px rgba(118,2,253,0.1);}
+}
+@keyframes go{
+    100%{transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) ;}
+}
+div div img {
+   width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

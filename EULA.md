@@ -1,4 +1,4 @@
-# 最终用户许可协议（EULA）
+# 最终用户许可协议
 
 **生效日期：2026年4月25日**
 
@@ -85,7 +85,7 @@
 
 ---
 
-# End User License Agreement (EULA)
+# End User License Agreement 
 
 **Effective Date: April 25, 2026**
 
@@ -172,7 +172,7 @@ If you have any questions or concerns regarding this Agreement, please contact u
 
 ---
 
-# 最終用戶授權協議（EULA）
+# 最終用戶授權協議
 
 **生效日期：2026年4月25日**
 

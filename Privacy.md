@@ -1,4 +1,4 @@
-# 隐私政策（Privacy Policy）
+# 隐私政策
 
 **生效日期：2026年4月25日**
 
@@ -103,14 +103,14 @@
 
 ---
 
-## 7. 未成年人保护（可选）
+## 7. 未成年人保护
 
 本应用不面向未满 13 岁的儿童提供服务。  
 如您为未成年人，请在监护人指导下使用本应用。
 
 ---
 
-## 8. 数据删除（可选）
+## 8. 数据删除
 
 由于本应用的数据仅存储在您的本地设备中，您可以通过以下方式删除所有相关数据：
 
@@ -224,14 +224,14 @@ If you have any questions, feedback, or complaints regarding this Privacy Policy
 
 ---
 
-## 7. Children’s Privacy (Optional)
+## 7. Children’s Privacy
 
 This App is not intended for children under the age of 13.  
 If you are a minor, please use the App under the guidance of a parent or legal guardian.
 
 ---
 
-## 8. Data Deletion (Optional)
+## 8. Data Deletion
 
 Since all data is stored locally on your device, you may delete all related data by:
 
@@ -240,7 +240,7 @@ Since all data is stored locally on your device, you may delete all related data
 
 ---
 
-# 隱私政策（Privacy Policy）
+# 隱私政策
 
 **生效日期：2026年4月25日**
 
@@ -345,14 +345,14 @@ Since all data is stored locally on your device, you may delete all related data
 
 ---
 
-## 7. 未成年人保護（可選）
+## 7. 未成年人保護
 
 本應用不針對未滿 13 歲之兒童提供服務。  
 如您為未成年人，請在監護人指導下使用本應用。
 
 ---
 
-## 8. 資料刪除（可選）
+## 8. 資料刪除
 
 由於本應用的資料僅儲存在您的本地裝置中，您可透過以下方式刪除所有相關資料：
 
